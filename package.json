@@ -70,7 +70,7 @@
     "@types/react": "18.3.26",
     "**/recursive-readdir/minimatch": "6.2.0",
     "decode-uri-component": "0.2.2",
-    "express": "5.1.0",
+    "express": "5.2.0",
     "fastify": "3.29.5",
     "follow-redirects": "1.15.9",
     "json5": "2.2.3",
