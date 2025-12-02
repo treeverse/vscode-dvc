@@ -7,9 +7,11 @@ on:
 
 jobs:
   deploy:
+    permissions:
+      contents: write
     if: |
-      github.event_name == 'workflow_dispatch' || 
-      (github.event.pull_request.merged == true && 
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.pull_request.merged == true &&
       github.event.pull_request.title == 'Update version and CHANGELOG for release')
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -30,7 +32,7 @@ jobs:
         with:
           node-version: '20'
           cache: 'yarn'
-          
+
       - run: yarn install
       - run: yarn build
 
