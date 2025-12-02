@@ -22,7 +22,7 @@ async function main() {
         await setupTestVenv(
           TEMP_DIR,
           ENV_DIR,
-          'git+https://github.com/iterative/dvc#egg=dvc[s3]'
+          'git+https://github.com/treeverse/dvc#egg=dvc[s3]'
         )
       },
       () => {

@@ -19,7 +19,7 @@ beforeEach(() => {
 
 describe('openUrl', () => {
   it('should call env.openExternal with the provided url', async () => {
-    const mockUrl = 'https://github.com/iterative/vscode-dvc'
+    const mockUrl = 'https://github.com/treeverse/vscode-dvc'
     const mockUri = Uri.parse(mockUrl)
 
     await openUrl(mockUrl)

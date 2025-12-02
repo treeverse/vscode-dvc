@@ -13,7 +13,7 @@ export const recommendRedHatExtension = async () => {
   const response = await Toast.askShowOrCloseOrNever(
     'It is recommended that you install the ' +
       '[Red Hat YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) ' +
-      'extension for comprehensive YAML Language support and [DVC YAML schema validation](https://github.com/iterative/dvcyaml-schema).'
+      'extension for comprehensive YAML Language support and [DVC YAML schema validation](https://github.com/treeverse/dvcyaml-schema).'
   )
 
   if (response === Response.SHOW) {

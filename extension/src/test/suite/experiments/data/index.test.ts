@@ -139,7 +139,7 @@ suite('Experiments Data Test Suite', () => {
           {
             getAccessToken: () => '',
             getGitRemoteUrl: () =>
-              'git@github.com:iterative/vscode-dvc-demo.git',
+              'git@github.com:treeverse/vscode-dvc-demo.git',
             isReady: () => Promise.resolve(undefined)
           } as Studio,
           []
@@ -211,7 +211,7 @@ suite('Experiments Data Test Suite', () => {
           {
             getAccessToken: () => '',
             getGitRemoteUrl: () =>
-              'git@github.com:iterative/vscode-dvc-demo.git',
+              'git@github.com:treeverse/vscode-dvc-demo.git',
             isReady: () => Promise.resolve(undefined)
           } as Studio,
           []
@@ -366,7 +366,7 @@ suite('Experiments Data Test Suite', () => {
           'commits=53c3851f46955fa3e2b8f6e1c52999acc8c9ea77' +
           '&commits=fe2919bb4394b30494bea905c253e10077b9a1bd' +
           '&commits=7df876cb5147800cd3e489d563bc6dcd67188621' +
-          '&git_remote_url=git%40github.com%3Aiterative%2Fvscode-dvc-demo.git',
+          '&git_remote_url=git%40github.com%3Atreeverse%2Fvscode-dvc-demo.git',
         {
           headers: {
             Authorization: `token ${mockStudioToken}`
@@ -410,7 +410,7 @@ suite('Experiments Data Test Suite', () => {
           'commits=53c3851f46955fa3e2b8f6e1c52999acc8c9ea77' +
           '&commits=fe2919bb4394b30494bea905c253e10077b9a1bd' +
           '&commits=7df876cb5147800cd3e489d563bc6dcd67188621' +
-          '&git_remote_url=git%40github.com%3Aiterative%2Fvscode-dvc-demo.git',
+          '&git_remote_url=git%40github.com%3Atreeverse%2Fvscode-dvc-demo.git',
         {
           headers: {
             Authorization: `token ${mockStudioToken}`

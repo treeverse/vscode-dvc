@@ -20,7 +20,7 @@ project available in the workspace:
 > 🤗 If something goes wrong, you have a feature request, or you need some help-
 > don't hesitate to ping us in the [Discord](https://discord.gg/BGCjJHvDHt)
 > channel or open an issue on
-> [GitHub](https://github.com/iterative/vscode-dvc/issues). We are happy to
+> [GitHub](https://github.com/treeverse/vscode-dvc/issues). We are happy to
 > help.
 
 If DVC and the extension are initialized, the side bar will expose multiple

@@ -1,12 +1,12 @@
 ## Feedback
 
 See something that should be changed? Want to request a new feature? Open an
-[issue on GitHub](https://github.com/iterative/vscode-dvc/issues)!
+[issue on GitHub](https://github.com/treeverse/vscode-dvc/issues)!
 
 ## Pull requests
 
 You may also submit a change request to this repository directly
-[from here](https://github.com/iterative/vscode-dvc/pulls). Contributions are
+[from here](https://github.com/treeverse/vscode-dvc/pulls). Contributions are
 highly appreciated!
 
 > 💡 **Tip**: To enable formatting on save in VS Code, install the
@@ -58,7 +58,7 @@ First, ensure that [Visual Studio Code](https://code.visualstudio.com) and
 
 ## The demo project
 
-The [demo project](https://github.com/iterative/vscode-dvc-demo) is provided as
+The [demo project](https://github.com/treeverse/vscode-dvc-demo) is provided as
 a lightweight, convenient testbed to try your changes to this extension.
 
 > **Note**: It is not an exhaustive showcase of DVC's features. Testers are
@@ -81,7 +81,7 @@ a lightweight, convenient testbed to try your changes to this extension.
 [python extension]:
   https://marketplace.visualstudio.com/items?itemName=ms-python.python
 [run experiments]:
-  https://github.com/iterative/vscode-dvc/blob/main/extension/resources/walkthrough/run-experiments.md
+  https://github.com/treeverse/vscode-dvc/blob/main/extension/resources/walkthrough/run-experiments.md
 
 ## React component development with Storybook
 
