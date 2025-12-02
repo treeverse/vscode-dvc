@@ -384,7 +384,7 @@ describe('Table', () => {
     })
 
     it('split group should be moving properly', async () => {
-      // test for https://github.com/iterative/vscode-dvc/issues/3679
+      // test for https://github.com/treeverse/vscode-dvc/issues/3679
       const { getDraggableHeaderFromText } = renderExperimentsTable({
         ...tableDataFixture
       })

@@ -13,5 +13,5 @@
       "labels": ["🏠 housekeeping"]
     }
   ],
-  "pr_template": "- #{{TITLE}} [##{{NUMBER}}](https://github.com/iterative/vscode-dvc/pull/#{{NUMBER}}) by [@#{{AUTHOR}}](https://github.com/#{{AUTHOR}})"
+  "pr_template": "- #{{TITLE}} [##{{NUMBER}}](https://github.com/treeverse/vscode-dvc/pull/#{{NUMBER}}) by [@#{{AUTHOR}}](https://github.com/#{{AUTHOR}})"
 }

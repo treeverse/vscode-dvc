@@ -313,7 +313,7 @@ export const buildExperimentsData = (
       } as unknown as ExperimentsModel,
       {
         getAccessToken: () => studioAccessToken,
-        getGitRemoteUrl: () => 'git@github.com:iterative/vscode-dvc-demo.git',
+        getGitRemoteUrl: () => 'git@github.com:treeverse/vscode-dvc-demo.git',
         getInstanceUrl: () => studioUrl,
         isReady: () => Promise.resolve(undefined)
       } as Studio,

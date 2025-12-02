@@ -5,9 +5,9 @@
 ![Downloads](https://img.shields.io/visual-studio-marketplace/d/iterative.dvc)
 ![Rating](https://img.shields.io/visual-studio-marketplace/r/iterative.dvc)
 
-[![Continuous Integration](https://github.com/iterative/vscode-dvc/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/iterative/vscode-dvc/actions/workflows/continuous-integration.yml)
-[![Maintainability](https://api.codeclimate.com/v1/badges/394dc6629c487ab8776c/maintainability)](https://codeclimate.com/github/iterative/vscode-dvc/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/394dc6629c487ab8776c/test_coverage)](https://codeclimate.com/github/iterative/vscode-dvc/test_coverage)
+[![Continuous Integration](https://github.com/treeverse/vscode-dvc/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/treeverse/vscode-dvc/actions/workflows/continuous-integration.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/394dc6629c487ab8776c/maintainability)](https://codeclimate.com/github/treeverse/vscode-dvc/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/394dc6629c487ab8776c/test_coverage)](https://codeclimate.com/github/treeverse/vscode-dvc/test_coverage)
 
 [Quick start](#quick-start) • [What you get](#what-you-get) •
 [Commands](#useful-commands) • [Configuration](#configuration) •
@@ -22,7 +22,7 @@ databases are required.
 🔔 Stay up-to-date with the latest product updates and tutorials by subscribing
 to the [DVC YouTube channel](https://www.youtube.com/@dvcorg8370/videos)!
 
-![Extension Overview](https://raw.githubusercontent.com/iterative/vscode-dvc/main/extension/docs/overview.gif)
+![Extension Overview](https://raw.githubusercontent.com/treeverse/vscode-dvc/main/extension/docs/overview.gif)
 
 - **Experiment tracking**: Record training data, parameters, and metrics on top
   of [Git](https://git-scm.com/). Navigate your experiments, compare their
@@ -38,7 +38,7 @@ to the [DVC YouTube channel](https://www.youtube.com/@dvcorg8370/videos)!
 > **Note**: We always welcome feedback! Feel free to reach out [via Discord] or
 > open [issues in GitHub].
 >
-> [issues in github]: https://github.com/iterative/vscode-dvc/issues
+> [issues in github]: https://github.com/treeverse/vscode-dvc/issues
 > [via discord]: https://discord.gg/BGCjJHvDHt
 
 ### Why prefer this extension?
@@ -82,14 +82,14 @@ Management]. For deeper learning, try our [free course]! [More resources].
 [data management]: https://dvc.org/doc/start/data-management
 [free course]: https://learn.dvc.org/
 [more resources]:
-  https://github.com/iterative/vscode-dvc/blob/main/extension/resources/walkthrough/more-resources.md
+  https://github.com/treeverse/vscode-dvc/blob/main/extension/resources/walkthrough/more-resources.md
 
 ## What you get
 
 This extension augments VS Code in the following ways:
 
 - Adds a brand-new new **[DVC View]** (<img
-  src="https://raw.githubusercontent.com/iterative/vscode-dvc/main/extension/docs/dvc.png"
+  src="https://raw.githubusercontent.com/treeverse/vscode-dvc/main/extension/docs/dvc.png"
   alt="DVC logo" height="16"/> icon in the Activity Bar) with panels to
   visualize and manage [DVC Experiments].
 - Provides special _Editors_ to manage **[Experiments]** and display **[Plots]**
@@ -105,18 +105,18 @@ This extension augments VS Code in the following ways:
   [debugging](#debugging)).
 
 [dvc view]:
-  https://github.com/iterative/vscode-dvc/blob/main/extension/resources/walkthrough/view-container.md
+  https://github.com/treeverse/vscode-dvc/blob/main/extension/resources/walkthrough/view-container.md
 [experiments]:
-  https://github.com/iterative/vscode-dvc/blob/main/extension/resources/walkthrough/experiments-table.md
+  https://github.com/treeverse/vscode-dvc/blob/main/extension/resources/walkthrough/experiments-table.md
 [plots]:
-  https://github.com/iterative/vscode-dvc/blob/main/extension/resources/walkthrough/plots.md
+  https://github.com/treeverse/vscode-dvc/blob/main/extension/resources/walkthrough/plots.md
 [command palette]:
   https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette
 [dvc tracked]:
-  https://github.com/iterative/vscode-dvc/blob/main/extension/resources/walkthrough/dvc-tracked-files.md
+  https://github.com/treeverse/vscode-dvc/blob/main/extension/resources/walkthrough/dvc-tracked-files.md
 [synchronize]: https://dvc.org/doc/start/data-management#storing-and-sharing
 [dvc panel]:
-  https://github.com/iterative/vscode-dvc/blob/main/extension/resources/walkthrough/dvc-tracked-files.md
+  https://github.com/treeverse/vscode-dvc/blob/main/extension/resources/walkthrough/dvc-tracked-files.md
 [workspace status]:
   https://dvc.org/doc/command-reference/status#local-workspace-status
 [restore]: https://dvc.org/doc/start/data-management#switching-between-versions
@@ -136,7 +136,7 @@ in one of the following commands:
 Learn more about the extension's [commands].
 
 [commands]:
-  https://github.com/iterative/vscode-dvc/blob/main/extension/resources/walkthrough/command-palette.md
+  https://github.com/treeverse/vscode-dvc/blob/main/extension/resources/walkthrough/command-palette.md
 
 ## Configuration
 
@@ -208,9 +208,9 @@ pipelines, and most scripts are capable of running outside of DVC.
 ## Contributing
 
 See the development and contributing guidelines in
-[CONTRIBUTING.md](https://github.com/iterative/vscode-dvc/blob/main/CONTRIBUTING.md).
+[CONTRIBUTING.md](https://github.com/treeverse/vscode-dvc/blob/main/CONTRIBUTING.md).
 
-![GitHub Contributors Image](https://contrib.rocks/image?repo=iterative/vscode-dvc)
+![GitHub Contributors Image](https://contrib.rocks/image?repo=treeverse/vscode-dvc)
 
 ## Data and telemetry
 

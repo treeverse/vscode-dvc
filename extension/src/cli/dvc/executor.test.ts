@@ -386,7 +386,7 @@ describe('CliExecutor', () => {
 		------------
 		- Check out the documentation: <https://dvc.org/doc>
 		- Get help and share ideas: <https://dvc.org/chat>
-		- Star us on GitHub: <https://github.com/iterative/dvc>`
+		- Star us on GitHub: <https://github.com/treeverse/dvc>`
 
       mockedCreateProcess.mockReturnValueOnce(getMockedProcess(stdout))
 

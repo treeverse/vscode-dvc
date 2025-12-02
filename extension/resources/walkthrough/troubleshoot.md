@@ -13,7 +13,7 @@ The completion entry will show:
 
 Don't hesitate to ping us in the [Discord](https://discord.gg/BGCjJHvDHt)
 channel or open an issue on
-[GitHub](https://github.com/iterative/vscode-dvc/issues). We are happy to help
+[GitHub](https://github.com/treeverse/vscode-dvc/issues). We are happy to help
 🤗.
 
 Please share with us the output channel logs, the extension version, and the DVC

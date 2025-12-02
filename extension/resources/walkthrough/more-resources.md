@@ -33,5 +33,5 @@
 [example project]: https://github.com/iterative/example-get-started-experiments
 [blog]: https://dvc.org/blog
 [community]: https://dvc.org/community
-[dvc github repository]: https://github.com/iterative/dvc
+[dvc github repository]: https://github.com/treeverse/dvc
 [dvc studio]: https://studio.datachain.ai/

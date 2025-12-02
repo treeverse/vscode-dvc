@@ -14,10 +14,10 @@
   "readme": "./README.md",
   "repository": {
     "type": "git",
-    "url": "https://github.com/iterative/vscode-dvc"
+    "url": "https://github.com/treeverse/vscode-dvc"
   },
-  "bugs": "https://github.com/iterative/vscode-dvc",
-  "homepage": "https://github.com/iterative/vscode-dvc#readme",
+  "bugs": "https://github.com/treeverse/vscode-dvc",
+  "homepage": "https://github.com/treeverse/vscode-dvc#readme",
   "keywords": [
     "iterative",
     "data version control",
@@ -1468,7 +1468,7 @@
       },
       {
         "view": "dvc.views.support",
-        "contents": "[$(github) Github Issues](https://github.com/iterative/vscode-dvc/issues)\n[$(comment-discussion) Discord](https://discord.gg/BGCjJHvDHt)",
+        "contents": "[$(github) Github Issues](https://github.com/treeverse/vscode-dvc/issues)\n[$(comment-discussion) Discord](https://discord.gg/BGCjJHvDHt)",
         "when": "true"
       }
     ],

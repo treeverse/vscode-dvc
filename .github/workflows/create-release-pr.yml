@@ -20,9 +20,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup CML
-        uses: iterative/setup-cml@v1
-
       - name: Set Variables
         id: set_variables
         run: |
