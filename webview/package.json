@@ -73,7 +73,7 @@
     "raw-loader": "4.0.2",
     "sass": "1.83.4",
     "sass-loader": "13.3.3",
-    "storybook": "8.6.14",
+    "storybook": "8.6.15",
     "storybook-addon-themes": "6.1.0",
     "style-loader": "3.3.4",
     "stylelint": "15.11.0",
