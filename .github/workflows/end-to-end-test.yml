@@ -31,6 +31,13 @@ jobs:
           node-version: '20'
           cache: 'yarn'
 
+      - name: Clean Up Disk Space
+        run: |
+          # Space usage before cleanup
+          df -h /
+          sudo rm -rf /usr/lib/jvm /usr/local/.ghcup /usr/local/lib/android /usr/local/share/powershell /usr/share/dotnet /usr/share/swift 
+          df -h /
+
       - name: Turbo cache
         if: ${{ github.ref_name != 'main' }}
         id: turbo-cache
