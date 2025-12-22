@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.31] - 2025-12-22
+
+### 🔨 Maintenance
+
+- chore(deps): update dependency dvc to v3.65.0 [#6055](https://github.com/treeverse/vscode-dvc/pull/6055) by [@renovate[bot]](https://github.com/renovate%5Bbot%5D)
+
 ## [1.2.30] - 2025-12-02
 
 ### 🔨 Maintenance
