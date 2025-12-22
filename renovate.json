@@ -17,7 +17,8 @@
     },
     {
       "groupName": "update demo project and latest tested CLI version",
-      "matchPackageNames": ["dvc", "demo"]
+      "matchPackageNames": ["dvc", "demo"],
+      "stabilityDays": 0
     }
   ],
   "git-submodules": {
