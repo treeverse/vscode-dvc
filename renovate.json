@@ -7,18 +7,18 @@
     "process-exists",
     "webdriverio"
   ],
-  "extends": ["config:base"],
+  "extends": ["config:recommended"],
   "packageRules": [
     {
       "internalChecksFilter": "strict",
       "matchDatasources": ["npm"],
       "prConcurrentLimit": 1,
-      "stabilityDays": 7
+      "minimumReleaseAge": "7 days"
     },
     {
       "groupName": "update demo project and latest tested CLI version",
       "matchPackageNames": ["dvc", "demo"],
-      "stabilityDays": 0,
+      "minimumReleaseAge": null,
       "labels": ["housekeeping"]
     }
   ],
