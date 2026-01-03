@@ -67,6 +67,12 @@ export enum RegisteredCommands {
 
   PIPELINE_SHOW_DAG = 'dvc.showPipelineDAG',
 
+  STAGE_RUN = 'dvc.stage.run',
+  STAGE_STATUS = 'dvc.stage.status',
+  STAGE_COPY_COMMAND = 'dvc.stage.copyCommand',
+  STAGE_SHOW_ACTIONS = 'dvc.stage.showActions',
+  STAGE_RUN_SINGLE = 'dvc.stage.runSingle',
+
   PLOTS_PATH_TOGGLE = 'dvc.views.plotsPathsTree.toggleStatus',
   PLOTS_SHOW = 'dvc.showPlots',
   PLOTS_SELECT = 'dvc.views.plotsPathsTree.selectPlots',

@@ -400,6 +400,36 @@
         "icon": "$(symbol-class)"
       },
       {
+        "title": "Run Stage",
+        "command": "dvc.stage.run",
+        "category": "DVC",
+        "icon": "$(play)"
+      },
+      {
+        "title": "Check Stage Status",
+        "command": "dvc.stage.status",
+        "category": "DVC",
+        "icon": "$(search)"
+      },
+      {
+        "title": "Copy Stage Command",
+        "command": "dvc.stage.copyCommand",
+        "category": "DVC",
+        "icon": "$(copy)"
+      },
+      {
+        "title": "Stage Actions",
+        "command": "dvc.stage.showActions",
+        "category": "DVC",
+        "icon": "$(ellipsis)"
+      },
+      {
+        "title": "Run Single Stage",
+        "command": "dvc.stage.runSingle",
+        "category": "DVC",
+        "icon": "$(play)"
+      },
+      {
         "title": "Add Plot",
         "command": "dvc.addPlot",
         "category": "DVC",
@@ -861,6 +891,26 @@
         {
           "command": "dvc.showPipelineDAG",
           "when": "dvc.commands.available && dvc.project.available"
+        },
+        {
+          "command": "dvc.stage.run",
+          "when": "false"
+        },
+        {
+          "command": "dvc.stage.status",
+          "when": "false"
+        },
+        {
+          "command": "dvc.stage.copyCommand",
+          "when": "false"
+        },
+        {
+          "command": "dvc.stage.showActions",
+          "when": "false"
+        },
+        {
+          "command": "dvc.stage.runSingle",
+          "when": "false"
         },
         {
           "command": "dvc.addPlot",

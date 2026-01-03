@@ -48,3 +48,21 @@ export const workspace = {
   ]
 }
 export const WorkspaceEdit = jest.fn()
+export class Range {
+  constructor(
+    public startLine: number,
+    public startCharacter: number,
+    public endLine: number,
+    public endCharacter: number
+  ) {}
+}
+export class CodeLens {
+  constructor(
+    public range: Range,
+    public command?: {
+      title: string
+      command: string
+      arguments?: unknown[]
+    }
+  ) {}
+}

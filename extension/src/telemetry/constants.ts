@@ -194,6 +194,12 @@ export interface IEventNamePropertyMapping {
 
   [EventName.PIPELINE_SHOW_DAG]: undefined
 
+  [EventName.STAGE_RUN]: undefined
+  [EventName.STAGE_STATUS]: undefined
+  [EventName.STAGE_COPY_COMMAND]: undefined
+  [EventName.STAGE_SHOW_ACTIONS]: undefined
+  [EventName.STAGE_RUN_SINGLE]: undefined
+
   [EventName.PLOTS_PATH_TOGGLE]: undefined
   [EventName.PLOTS_SHOW]: undefined
   [EventName.PLOTS_SELECT]: undefined

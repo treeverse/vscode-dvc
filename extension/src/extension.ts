@@ -1,4 +1,4 @@
-import { commands, ExtensionContext, ViewColumn } from 'vscode'
+import { commands, ExtensionContext, languages, ViewColumn } from 'vscode'
 import { DvcConfig } from './cli/dvc/config'
 import { DvcExecutor } from './cli/dvc/executor'
 import { DvcRunner } from './cli/dvc/runner'
@@ -52,6 +52,11 @@ import { registerPersistenceCommands } from './persistence/register'
 import { showSetupOrExecuteCommand } from './commands/util'
 import { WorkspacePipeline } from './pipeline/workspace'
 import { registerPipelineCommands } from './pipeline/register'
+import {
+  StageCodeLensProvider,
+  StageRunner,
+  registerStageCommands
+} from './pipeline/codelens'
 
 class Extension extends Disposable {
   protected readonly internalCommands: InternalCommands
@@ -277,6 +282,19 @@ class Extension extends Disposable {
     this.dispose.track(recommendRedHatExtensionOnce())
 
     this.dispose.track(new LanguageClient())
+
+    const stageCodeLensProvider = this.dispose.track(
+      new StageCodeLensProvider()
+    )
+    this.dispose.track(
+      languages.registerCodeLensProvider(
+        { pattern: '**/dvc.yaml' },
+        stageCodeLensProvider
+      )
+    )
+
+    const stageRunner = this.dispose.track(new StageRunner(config, this.internalCommands))
+    registerStageCommands(stageRunner, this.internalCommands, this)
   }
 
   public async initialize() {
