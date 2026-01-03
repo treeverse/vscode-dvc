@@ -1,4 +1,4 @@
-import { CodeLens, Range, TextDocument, Uri } from 'vscode'
+import { Range, TextDocument, Uri } from 'vscode'
 import { StageCodeLensProvider } from './provider'
 import { parseStagesFromYaml, StageType } from './parse'
 
@@ -19,10 +19,10 @@ const createMockDocument = (content: string, fileName = 'dvc.yaml') => {
   return {
     fileName,
     getText: () => content,
-    uri: { fsPath: `/project/${fileName}` } as Uri,
     lineAt: (line: number) => ({
       range: new Range(line, 0, line, 100)
-    })
+    }),
+    uri: { fsPath: `/project/${fileName}` } as Uri
   } as unknown as TextDocument
 }
 
@@ -38,22 +38,22 @@ describe('StageCodeLensProvider', () => {
 
       const codeLenses = provider.provideCodeLenses(document)
 
-      expect(codeLenses).toEqual([])
+      expect(codeLenses).toStrictEqual([])
     })
 
     it('should create CodeLens for each simple stage', () => {
       mockedParseStagesFromYaml.mockReturnValue([
         {
-          name: 'train',
-          type: StageType.SIMPLE,
+          cmd: 'python train.py',
           lineNumber: 2,
-          cmd: 'python train.py'
+          name: 'train',
+          type: StageType.SIMPLE
         },
         {
-          name: 'evaluate',
-          type: StageType.SIMPLE,
+          cmd: 'python evaluate.py',
           lineNumber: 8,
-          cmd: 'python evaluate.py'
+          name: 'evaluate',
+          type: StageType.SIMPLE
         }
       ])
 
@@ -70,11 +70,11 @@ describe('StageCodeLensProvider', () => {
     it('should create CodeLens with run-all icon for matrix stages', () => {
       mockedParseStagesFromYaml.mockReturnValue([
         {
-          name: 'train',
-          type: StageType.MATRIX,
-          lineNumber: 2,
           cmd: 'python train.py',
-          matrixAxes: { model: ['cnn', 'xgb'] }
+          lineNumber: 2,
+          matrixAxes: { model: ['cnn', 'xgb'] },
+          name: 'train',
+          type: StageType.MATRIX
         }
       ])
 
@@ -90,11 +90,11 @@ describe('StageCodeLensProvider', () => {
     it('should create CodeLens with run-all icon for foreach stages', () => {
       mockedParseStagesFromYaml.mockReturnValue([
         {
-          name: 'process',
-          type: StageType.FOREACH,
-          lineNumber: 2,
           cmd: 'python process.py',
-          foreachItems: ['a', 'b', 'c']
+          foreachItems: ['a', 'b', 'c'],
+          lineNumber: 2,
+          name: 'process',
+          type: StageType.FOREACH
         }
       ])
 
@@ -110,10 +110,10 @@ describe('StageCodeLensProvider', () => {
     it('should include stage info in command arguments', () => {
       mockedParseStagesFromYaml.mockReturnValue([
         {
-          name: 'train',
-          type: StageType.SIMPLE,
+          cmd: 'python train.py',
           lineNumber: 2,
-          cmd: 'python train.py'
+          name: 'train',
+          type: StageType.SIMPLE
         }
       ])
 
@@ -122,21 +122,23 @@ describe('StageCodeLensProvider', () => {
 
       const codeLenses = provider.provideCodeLenses(document)
 
-      const runLens = codeLenses.find(l => l.command?.command === 'dvc.stage.run')
+      const runLens = codeLenses.find(
+        l => l.command?.command === 'dvc.stage.run'
+      )
       expect(runLens?.command?.arguments).toBeDefined()
       expect(runLens?.command?.arguments?.[0]).toMatchObject({
-        stageName: 'train',
-        cwd: '/project'
+        cwd: '/project',
+        stageName: 'train'
       })
     })
 
     it('should create More Actions CodeLens for each stage', () => {
       mockedParseStagesFromYaml.mockReturnValue([
         {
-          name: 'train',
-          type: StageType.SIMPLE,
+          cmd: 'python train.py',
           lineNumber: 2,
-          cmd: 'python train.py'
+          name: 'train',
+          type: StageType.SIMPLE
         }
       ])
 
@@ -153,4 +155,3 @@ describe('StageCodeLensProvider', () => {
     })
   })
 })
-

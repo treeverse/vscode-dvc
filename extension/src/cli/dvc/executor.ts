@@ -1,7 +1,4 @@
 import { DvcCli } from '.'
-import { typeCheckCommands } from '..'
-import { ContextKey, setContextValue } from '../../vscode/context'
-import { DEFAULT_REMOTE } from '../git/constants'
 import {
   Args,
   Command,
@@ -10,6 +7,9 @@ import {
   Flag,
   QueueSubCommand
 } from './constants'
+import { typeCheckCommands } from '..'
+import { ContextKey, setContextValue } from '../../vscode/context'
+import { DEFAULT_REMOTE } from '../git/constants'
 
 export const autoRegisteredCommands = {
   ADD: 'add',

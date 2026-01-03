@@ -1,9 +1,8 @@
 import {
   parseStagesFromYaml,
-  StageInfo,
-  StageType,
+  resolveForeachStageNames,
   resolveMatrixStageNames,
-  resolveForeachStageNames
+  StageType
 } from './parse'
 
 const SIMPLE_DVC_YAML = `stages:
@@ -87,14 +86,14 @@ describe('parseStagesFromYaml', () => {
 
     expect(stages).toHaveLength(2)
     expect(stages[0]).toMatchObject({
+      lineNumber: 2,
       name: 'train',
-      type: StageType.SIMPLE,
-      lineNumber: 2
+      type: StageType.SIMPLE
     })
     expect(stages[1]).toMatchObject({
+      lineNumber: 9,
       name: 'evaluate',
-      type: StageType.SIMPLE,
-      lineNumber: 9
+      type: StageType.SIMPLE
     })
   })
 
@@ -103,11 +102,11 @@ describe('parseStagesFromYaml', () => {
 
     expect(stages).toHaveLength(1)
     expect(stages[0]).toMatchObject({
+      lineNumber: 2,
       name: 'process',
-      type: StageType.FOREACH,
-      lineNumber: 2
+      type: StageType.FOREACH
     })
-    expect(stages[0].foreachItems).toEqual(['raw1', 'raw2', 'raw3'])
+    expect(stages[0].foreachItems).toStrictEqual(['raw1', 'raw2', 'raw3'])
   })
 
   it('should detect matrix stages', () => {
@@ -115,13 +114,13 @@ describe('parseStagesFromYaml', () => {
 
     expect(stages).toHaveLength(1)
     expect(stages[0]).toMatchObject({
+      lineNumber: 2,
       name: 'train',
-      type: StageType.MATRIX,
-      lineNumber: 2
+      type: StageType.MATRIX
     })
-    expect(stages[0].matrixAxes).toEqual({
-      model: ['cnn', 'xgb'],
-      feature: ['feat1', 'feat2']
+    expect(stages[0].matrixAxes).toStrictEqual({
+      feature: ['feat1', 'feat2'],
+      model: ['cnn', 'xgb']
     })
   })
 
@@ -151,19 +150,19 @@ describe('parseStagesFromYaml', () => {
       name: 'process',
       type: StageType.FOREACH
     })
-    expect(stages[0].foreachItems).toEqual(['us', 'uk'])
+    expect(stages[0].foreachItems).toStrictEqual(['us', 'uk'])
   })
 
   it('should return empty array for invalid yaml', () => {
     const stages = parseStagesFromYaml('invalid: yaml: content:')
 
-    expect(stages).toEqual([])
+    expect(stages).toStrictEqual([])
   })
 
   it('should return empty array for yaml without stages', () => {
     const stages = parseStagesFromYaml('vars:\n  - params.yaml\n')
 
-    expect(stages).toEqual([])
+    expect(stages).toStrictEqual([])
   })
 
   it('should extract cmd from simple stages', () => {
@@ -176,14 +175,16 @@ describe('parseStagesFromYaml', () => {
   it('should extract cmd from matrix stage do block', () => {
     const stages = parseStagesFromYaml(MATRIX_DVC_YAML)
 
-    expect(stages[0].cmd).toBe(
+    const expectedCmd =
+      // eslint-disable-next-line no-template-curly-in-string
       'python train.py --model ${item.model} --feature ${item.feature}'
-    )
+    expect(stages[0].cmd).toBe(expectedCmd)
   })
 
   it('should extract cmd from foreach stage do block', () => {
     const stages = parseStagesFromYaml(FOREACH_DVC_YAML)
 
+    // eslint-disable-next-line no-template-curly-in-string
     expect(stages[0].cmd).toBe('python process.py ${item}')
   })
 })
@@ -191,17 +192,17 @@ describe('parseStagesFromYaml', () => {
 describe('resolveMatrixStageNames', () => {
   it('should generate all combinations for matrix axes', () => {
     const matrixAxes = {
-      model: ['cnn', 'xgb'],
-      feature: ['feat1', 'feat2']
+      feature: ['feat1', 'feat2'],
+      model: ['cnn', 'xgb']
     }
 
     const names = resolveMatrixStageNames('train', matrixAxes)
 
     expect(names).toHaveLength(4)
-    expect(names).toContain('train@cnn-feat1')
-    expect(names).toContain('train@cnn-feat2')
-    expect(names).toContain('train@xgb-feat1')
-    expect(names).toContain('train@xgb-feat2')
+    expect(names).toContain('train@feat1-cnn')
+    expect(names).toContain('train@feat1-xgb')
+    expect(names).toContain('train@feat2-cnn')
+    expect(names).toContain('train@feat2-xgb')
   })
 
   it('should handle single axis matrix', () => {
@@ -238,7 +239,11 @@ describe('resolveForeachStageNames', () => {
     const names = resolveForeachStageNames('process', items)
 
     expect(names).toHaveLength(3)
-    expect(names).toEqual(['process@raw1', 'process@raw2', 'process@raw3'])
+    expect(names).toStrictEqual([
+      'process@raw1',
+      'process@raw2',
+      'process@raw3'
+    ])
   })
 
   it('should handle dictionary keys', () => {
@@ -247,7 +252,7 @@ describe('resolveForeachStageNames', () => {
     const names = resolveForeachStageNames('process', items)
 
     expect(names).toHaveLength(3)
-    expect(names).toEqual(['process@us', 'process@uk', 'process@de'])
+    expect(names).toStrictEqual(['process@us', 'process@uk', 'process@de'])
   })
 
   it('should handle numeric items', () => {
@@ -255,7 +260,6 @@ describe('resolveForeachStageNames', () => {
 
     const names = resolveForeachStageNames('stage', items)
 
-    expect(names).toEqual(['stage@0', 'stage@1', 'stage@2'])
+    expect(names).toStrictEqual(['stage@0', 'stage@1', 'stage@2'])
   })
 })
-

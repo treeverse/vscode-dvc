@@ -1,13 +1,13 @@
+import { basename, dirname } from 'path'
 import {
   CodeLens,
   CodeLensProvider,
-  Range,
-  TextDocument,
   Event,
-  EventEmitter
+  EventEmitter,
+  Range,
+  TextDocument
 } from 'vscode'
-import { dirname, basename } from 'path'
-import { parseStagesFromYaml, StageInfo, StageType } from './parse'
+import { parseStagesFromYaml, StageType } from './parse'
 import { Disposable } from '../../class/dispose'
 
 export interface StageCommandArg {
@@ -23,8 +23,9 @@ export class StageCodeLensProvider
   extends Disposable
   implements CodeLensProvider
 {
-  private readonly onDidChangeCodeLensesEmitter: EventEmitter<void>
   public readonly onDidChangeCodeLenses: Event<void>
+
+  private readonly onDidChangeCodeLensesEmitter: EventEmitter<void>
 
   constructor() {
     super()
@@ -52,12 +53,12 @@ export class StageCodeLensProvider
       const range = new Range(line, 0, line, 0)
 
       const commandArg: StageCommandArg = {
-        stageName: stage.name,
-        cwd,
         cmd: stage.cmd,
-        type: stage.type,
+        cwd,
+        foreachItems: stage.foreachItems,
         matrixAxes: stage.matrixAxes,
-        foreachItems: stage.foreachItems
+        stageName: stage.name,
+        type: stage.type
       }
 
       const isGroupStage =
@@ -65,17 +66,14 @@ export class StageCodeLensProvider
 
       codeLenses.push(
         new CodeLens(range, {
-          title: isGroupStage ? '$(run-all) Run All' : '$(play) Run',
+          arguments: [commandArg],
           command: 'dvc.stage.run',
-          arguments: [commandArg]
-        })
-      )
-
-      codeLenses.push(
+          title: isGroupStage ? '$(run-all) Run All' : '$(play) Run'
+        }),
         new CodeLens(range, {
-          title: '$(ellipsis) More',
+          arguments: [commandArg],
           command: 'dvc.stage.showActions',
-          arguments: [commandArg]
+          title: '$(ellipsis) More'
         })
       )
     }
@@ -83,7 +81,3 @@ export class StageCodeLensProvider
     return codeLenses
   }
 }
-
-
-
-

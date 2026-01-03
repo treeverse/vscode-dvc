@@ -1,10 +1,7 @@
-import { Event, EventEmitter, Terminal, window } from 'vscode'
+import { Terminal, window } from 'vscode'
 import { Disposable } from '../../class/dispose'
 import { getOptions } from '../../cli/dvc/options'
-import {
-  AvailableCommands,
-  InternalCommands
-} from '../../commands/internal'
+import { AvailableCommands, InternalCommands } from '../../commands/internal'
 import { Config } from '../../config'
 import {
   resolveForeachStageNames,
@@ -14,8 +11,6 @@ import {
 import { StageCommandArg } from './provider'
 
 export class StageRunner extends Disposable {
-  private readonly processCompleted: EventEmitter<void>
-  public readonly onDidCompleteProcess: Event<void>
   private readonly internalCommands: InternalCommands
   private readonly config: Config
 
@@ -23,36 +18,28 @@ export class StageRunner extends Disposable {
     super()
     this.config = config
     this.internalCommands = internalCommands
-    this.processCompleted = this.dispose.track(new EventEmitter())
-    this.onDidCompleteProcess = this.processCompleted.event
   }
 
   public runStage(arg: StageCommandArg): void {
-    const stageName = this.getFullStageName(arg)
-    const command = this.buildCommand('repro', stageName, arg.cwd)
-    this.runInTerminal(command, arg.cwd, `DVC: ${stageName}`)
+    this.runDvcCommand('repro', arg.stageName, arg.cwd)
   }
 
   public runStageStatus(arg: StageCommandArg): void {
-    const stageName = this.getFullStageName(arg)
-    const command = this.buildCommand('status', stageName, arg.cwd)
-    this.runInTerminal(command, arg.cwd, `DVC Status: ${stageName}`)
+    this.runDvcCommand('status', arg.stageName, arg.cwd, 'DVC Status')
   }
 
   public runSpecificStage(
     arg: StageCommandArg,
     specificStageName: string
   ): void {
-    const command = this.buildCommand('repro', specificStageName, arg.cwd)
-    this.runInTerminal(command, arg.cwd, `DVC: ${specificStageName}`)
+    this.runDvcCommand('repro', specificStageName, arg.cwd)
   }
 
   public runSpecificStageStatus(
     arg: StageCommandArg,
     specificStageName: string
   ): void {
-    const command = this.buildCommand('status', specificStageName, arg.cwd)
-    this.runInTerminal(command, arg.cwd, `DVC Status: ${specificStageName}`)
+    this.runDvcCommand('status', specificStageName, arg.cwd, 'DVC Status')
   }
 
   public getResolvedSubStageNames(arg: StageCommandArg): string[] {
@@ -75,8 +62,6 @@ export class StageRunner extends Disposable {
         cwd,
         stageName
       )
-      // Parse the output to extract the command
-      // DVC repro --dry output format: "Running stage '<stage>':\n> <command>"
       const match = output.match(/^>\s*(.+)$/m)
       return match ? match[1].trim() : undefined
     } catch {
@@ -84,43 +69,32 @@ export class StageRunner extends Disposable {
     }
   }
 
-  private getFullStageName(arg: StageCommandArg): string {
-    return arg.stageName
-  }
-
-  private buildCommand(
+  private runDvcCommand(
     dvcCommand: string,
     stageName: string,
-    cwd: string
-  ): string {
-    const options = getOptions({
-      PYTHONPATH: this.config.getPYTHONPATH(),
-      cliPath: this.config.getCliPath(),
-      cwd,
-      pythonBinPath: this.config.getPythonBinPath()
-    })
+    cwd: string,
+    terminalPrefix = 'DVC'
+  ): Terminal {
+    const options = this.getOptions(cwd)
     const argsStr = options.args.length > 0 ? options.args.join(' ') + ' ' : ''
-    return `${options.executable} ${argsStr}${dvcCommand} ${stageName}`
-  }
+    const command = `${options.executable} ${argsStr}${dvcCommand} ${stageName}`
 
-  private runInTerminal(command: string, cwd: string, name: string): Terminal {
-    const options = getOptions({
-      PYTHONPATH: this.config.getPYTHONPATH(),
-      cliPath: this.config.getCliPath(),
-      cwd,
-      pythonBinPath: this.config.getPythonBinPath()
-    })
     const terminal = window.createTerminal({
-      name,
       cwd,
-      env: options.env
+      env: options.env,
+      name: `${terminalPrefix}: ${stageName}`
     })
     terminal.show()
     terminal.sendText(command)
     return terminal
   }
+
+  private getOptions(cwd: string) {
+    return getOptions({
+      PYTHONPATH: this.config.getPYTHONPATH(),
+      cliPath: this.config.getCliPath(),
+      cwd,
+      pythonBinPath: this.config.getPythonBinPath()
+    })
+  }
 }
-
-
-
-

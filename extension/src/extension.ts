@@ -293,7 +293,9 @@ class Extension extends Disposable {
       )
     )
 
-    const stageRunner = this.dispose.track(new StageRunner(config, this.internalCommands))
+    const stageRunner = this.dispose.track(
+      new StageRunner(config, this.internalCommands)
+    )
     registerStageCommands(stageRunner, this.internalCommands, this)
   }
 
