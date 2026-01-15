@@ -79,7 +79,7 @@
     "terser": "5.37.0",
     "trim-newlines": "3.0.1",
     "trim": "1.0.1",
-    "undici": "5.29.0"
+    "undici": "6.23.0"
   },
   "packageManager": "yarn@1.22.22"
 }
