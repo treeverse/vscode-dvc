@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.32] - 2026-01-30
+
+### 🔨 Maintenance
+
+- Deprecate extension under Iterative, in favor of [`lakeFS`](https://marketplace.visualstudio.com/publishers/lakeFS)
+
 ## [1.2.31] - 2025-12-22
 
 ### 🔨 Maintenance

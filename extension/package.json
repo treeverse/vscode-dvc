@@ -2,14 +2,14 @@
   "name": "dvc",
   "private": true,
   "preview": false,
-  "displayName": "DVC",
+  "displayName": "DVC (deprecated)",
   "description": "Machine learning experiment management with tracking, plots, and data versioning.",
   "publisher": "iterative",
   "icon": "docs/dvc.png",
   "extensionDependencies": [
     "vscode.git"
   ],
-  "version": "1.2.31",
+  "version": "1.2.32",
   "license": "Apache-2.0",
   "readme": "./README.md",
   "repository": {
