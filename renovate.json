@@ -25,6 +25,10 @@
       "groupName": "github actions",
       "matchManagers": ["github-actions"],
       "labels": ["housekeeping"]
+    },
+    {
+      "matchDepNames": ["microsoft/vscode"],
+      "minimumReleaseAge": "7 days"
     }
   ],
   "git-submodules": {
@@ -33,7 +37,7 @@
   "customManagers": [
     {
       "customType": "regex",
-      "managerFilePatterns": ["/^extension/src/cli/dvc/contract\\.ts$/"],
+      "fileMatch": ["/^extension/src/cli/dvc/contract\\.ts$/"],
       "matchStrings": [
         "export const LATEST_TESTED_CLI_VERSION = \\'(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)\\'"
       ],
@@ -42,13 +46,12 @@
     },
     {
       "customType": "regex",
-      "managerFilePatterns": ["/^extension/src/test/e2e/wdio\\.conf\\.ts$/"],
+      "fileMatch": ["/^extension/src/test/e2e/wdio\\.conf\\.ts$/"],
       "matchStrings": [
         "browserVersion:\\s*['\"](?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)['\"]"
       ],
       "depNameTemplate": "microsoft/vscode",
-      "datasourceTemplate": "github-releases",
-      "minimumReleaseAge": "7 days"
+      "datasourceTemplate": "github-releases"
     }
   ]
 }
