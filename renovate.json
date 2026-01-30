@@ -37,7 +37,7 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["/^extension/src/cli/dvc/contract\\.ts$/"],
+      "managerFilePatterns": ["/^extension/src/cli/dvc/contract\\.ts$/"],
       "matchStrings": [
         "export const LATEST_TESTED_CLI_VERSION = \\'(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)\\'"
       ],
@@ -46,7 +46,7 @@
     },
     {
       "customType": "regex",
-      "fileMatch": ["/^extension/src/test/e2e/wdio\\.conf\\.ts$/"],
+      "managerFilePatterns": ["/^extension/src/test/e2e/wdio\\.conf\\.ts$/"],
       "matchStrings": [
         "browserVersion:\\s*['\"](?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)['\"]"
       ],
