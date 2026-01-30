@@ -5,12 +5,12 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
-    "dvc#build": {
+    "lakefs-dvc#build": {
       "dependsOn": ["dvc-vscode-webview#build", "dvc-vscode-lsp#build"],
       "outputs": ["dist/**", "./dvc.vsix"]
     },
     "package": {
-      "dependsOn": ["dvc#build"]
+      "dependsOn": ["lakefs-dvc#build"]
     },
     "build-storybook": {
       "dependsOn": ["^build-storybook"],
