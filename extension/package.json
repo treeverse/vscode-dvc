@@ -2,9 +2,9 @@
   "name": "dvc",
   "private": true,
   "preview": false,
-  "displayName": "DVC",
+  "displayName": "DVC by lakeFS",
   "description": "Machine learning experiment management with tracking, plots, and data versioning.",
-  "publisher": "iterative",
+  "publisher": "lakeFS",
   "icon": "docs/dvc.png",
   "extensionDependencies": [
     "vscode.git"
@@ -19,7 +19,7 @@
   "bugs": "https://github.com/treeverse/vscode-dvc",
   "homepage": "https://github.com/treeverse/vscode-dvc#readme",
   "keywords": [
-    "iterative",
+    "lakefs",
     "data version control",
     "plots",
     "experiment tracking",
@@ -1439,7 +1439,7 @@
       },
       {
         "view": "dvc.views.welcome",
-        "contents": "The extension is currently unable to initialize.\n[Show Setup](command:dvc.showDvcSetup)\nNew to the extension? Watch a [demo of the extension](https://youtu.be/E26IaD7bNXg?t=1177) in action or quickly try the extension yourself with our [example project](https://github.com/iterative/example-get-started-experiments). Dive deeper into DVC at [dvc.org](https://dvc.org/).",
+        "contents": "The extension is currently unable to initialize.\n[Show Setup](command:dvc.showDvcSetup)\nNew to the extension? Watch a [demo of the extension](https://youtu.be/E26IaD7bNXg?t=1177) in action or quickly try the extension yourself with our [example project](https://github.com/treeverse/example-get-started-experiments). Dive deeper into DVC at [dvc.org](https://dvc.org/).",
         "when": "true"
       },
       {
@@ -1681,7 +1681,7 @@
   },
   "__metadata": {
     "id": "96c35fb6-adb8-4c1e-b953-4004af8451e8",
-    "publisherDisplayName": "Iterative",
+    "publisherDisplayName": "lakeFS",
     "publisherId": "bc4dde4d-67b8-48bd-865c-7ee75e976429",
     "isPreReleaseVersion": false
   }
