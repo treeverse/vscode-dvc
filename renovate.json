@@ -8,6 +8,7 @@
     "webdriverio"
   ],
   "extends": ["config:recommended"],
+  "ignorePresets": [":ignoreModulesAndTests"],
   "packageRules": [
     {
       "internalChecksFilter": "strict",
@@ -48,7 +49,7 @@
       "customType": "regex",
       "managerFilePatterns": ["/^extension/src/test/e2e/wdio\\.conf\\.ts$/"],
       "matchStrings": [
-        "browserVersion: '(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)',",
+        "browserVersion: \\'(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)\\',"
       ],
       "depNameTemplate": "microsoft/vscode",
       "datasourceTemplate": "github-releases"
