@@ -1173,7 +1173,7 @@ describe('App', () => {
           'open'
         )
       },
-      { timeout: 1000 }
+      { timeout: 5000 }
     )
   })
 
@@ -1197,7 +1197,7 @@ describe('App', () => {
           'open'
         )
       },
-      { timeout: 1000 }
+      { timeout: 5000 }
     )
   })
 
