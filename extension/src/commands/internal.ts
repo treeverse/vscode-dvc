@@ -79,7 +79,9 @@ export class InternalCommands extends Disposable {
       commands.registerCommand(name, async (arg: T) => {
         try {
           return await this.runAndSendTelemetry<T>(name, func, arg)
-        } catch {
+        } catch (error) {
+          // eslint-disable-next-line no-console
+          console.error('CLI command failed:', name, error)
           void this.offerToShowError()
         }
       })
