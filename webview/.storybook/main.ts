@@ -29,7 +29,14 @@ export const config: StorybookConfig = {
     return {
       ...config,
       module: webpackConfig.module,
-      mode: 'development'
+      mode: 'development',
+      resolve: {
+        ...config.resolve,
+        alias: {
+          ...config.resolve?.alias,
+          ...webpackConfig.resolve.alias
+        }
+      }
     }
   }
 }

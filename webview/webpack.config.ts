@@ -106,6 +106,9 @@ export default {
     return [new ForkTsCheckerWebpackPlugin(), new CleanWebpackPlugin()]
   })(),
   resolve: {
+    alias: {
+      dvc: r('../extension')
+    },
     extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js'],
     fallback: { fs: false }
   }

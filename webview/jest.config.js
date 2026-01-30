@@ -13,6 +13,7 @@ module.exports = {
     __webpack_public_path__: true
   },
   moduleNameMapper: {
+    '^dvc/(.*)$': '<rootDir>/../extension/$1',
     '\\.(scss|css|less)$': 'identity-obj-proxy'
   },
   setupFiles: ['jest-canvas-mock', '<rootDir>/setup-tests.js'],
