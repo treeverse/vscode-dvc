@@ -186,7 +186,7 @@ suite('Repositories Tree Test Suite', () => {
     }).timeout(WEBVIEW_TEST_TIMEOUT)
 
     it('should be able to open a file to the side', async () => {
-      const fileToOpen = join(dvcDemoPath, 'requirements.txt')
+      const fileToOpen = join(dvcDemoPath, 'pyproject.toml')
       expect(getActiveTextEditorFilename()).not.to.equal(fileToOpen)
 
       const activeEditorChanged = activeTextEditorChangedEvent(disposable)
@@ -218,7 +218,7 @@ suite('Repositories Tree Test Suite', () => {
 
     it('should be able to compare two files', async () => {
       const baseline = Uri.file(join(dvcDemoPath, 'dvc.yaml'))
-      const comparison = Uri.file(join(dvcDemoPath, 'requirements.txt'))
+      const comparison = Uri.file(join(dvcDemoPath, 'pyproject.toml'))
       const executeCommandSpy = spy(commands, 'executeCommand')
 
       await commands.executeCommand(

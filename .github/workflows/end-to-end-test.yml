@@ -36,7 +36,7 @@ jobs:
         run: |
           # Space usage before cleanup
           df -h /
-          sudo rm -rf /usr/lib/jvm /usr/local/.ghcup /usr/local/lib/android /usr/local/share/powershell /usr/share/dotnet /usr/share/swift 
+          sudo rm -rf /usr/lib/jvm /usr/local/.ghcup /usr/local/lib/android /usr/local/share/powershell /usr/share/dotnet /usr/share/swift
           df -h /
 
       - name: Turbo cache
@@ -52,7 +52,7 @@ jobs:
             turbo-end-to-end-${{ github.job }}-${{ github.ref_name }}-
 
       - run: yarn install
-
+      - uses: astral-sh/setup-uv@v7
       - name: Test E2E
         uses: GabrielBB/xvfb-action@v1
         with:
