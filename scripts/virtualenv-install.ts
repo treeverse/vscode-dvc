@@ -1,15 +1,10 @@
-/* eslint-disable */
-import { join, resolve } from 'path'
-require('dvc/src/vscode/mockModule')
+import { execSync } from 'child_process'
+import { resolve } from 'path'
 
-const importModuleAfterMockingVsCode = () => {
-  const { setupTestVenv } = require('dvc/src/python')
+const demoDir = resolve(__dirname, '..', 'demo')
 
-  return setupTestVenv
-}
-
-const setupTestVenv = importModuleAfterMockingVsCode()
-
-const cwd = resolve(__dirname, '..', 'demo')
-
-setupTestVenv(cwd, '.env', '-r', join('.', 'requirements.txt'))
+execSync('uv sync', {
+  cwd: demoDir,
+  stdio: 'inherit',
+  env: { ...process.env, UV_PROJECT_ENVIRONMENT: '.env' }
+})
