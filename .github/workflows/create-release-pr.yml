@@ -8,6 +8,13 @@ on:
           'Override semver - can be used to bump minor and major versions'
         type: string
         required: false
+      branch:
+        description: 'Target branch for release'
+        type: choice
+        options:
+          - main
+          - legacy
+        default: main
 
 permissions:
   contents: write
@@ -22,6 +29,7 @@ jobs:
         id: checkout
         uses: actions/checkout@v6
         with:
+          ref: ${{ github.event.inputs.branch }}
           fetch-depth: 0
 
       - name: Set Variables
@@ -37,7 +45,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           configuration: .github/workflows/changelog-config.json
-          toTag: main
+          toTag: ${{ github.event.inputs.branch }}
           fromTag: ${{ steps.set_variables.outputs.last_release_tag }}
 
       - name: Update Version
@@ -57,7 +65,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
         with:
-          base: main
+          base: ${{ github.event.inputs.branch }}
           body: |
             This PR updates the extension version and CHANGELOG.md.
 

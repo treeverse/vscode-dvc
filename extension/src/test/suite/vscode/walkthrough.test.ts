@@ -30,7 +30,7 @@ suite('Walkthrough Test Suite', () => {
       expect(mockExecuteCommand).to.be.calledTwice
       expect(mockExecuteCommand).to.be.calledWith(
         'workbench.action.openWalkthrough',
-        'iterative.dvc#welcome'
+        'lakeFS.dvc#welcome'
       )
     })
   })

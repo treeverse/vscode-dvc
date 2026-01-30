@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - legacy
   pull_request:
 
 concurrency:
