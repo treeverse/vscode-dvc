@@ -17,8 +17,13 @@
     },
     {
       "groupName": "update demo project and latest tested CLI version",
-      "matchPackageNames": ["dvc", "demo"],
+      "matchDepNames": ["dvc", "demo"],
       "minimumReleaseAge": null,
+      "labels": ["housekeeping"]
+    },
+    {
+      "groupName": "github actions",
+      "matchManagers": ["github-actions"],
       "labels": ["housekeeping"]
     }
   ],
@@ -34,6 +39,16 @@
       ],
       "depNameTemplate": "dvc",
       "datasourceTemplate": "pypi"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/^extension/src/test/e2e/wdio\\.conf\\.ts$/"],
+      "matchStrings": [
+        "browserVersion:\\s*['\"](?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)['\"]"
+      ],
+      "depNameTemplate": "microsoft/vscode",
+      "datasourceTemplate": "github-releases",
+      "minimumReleaseAge": "7 days"
     }
   ]
 }
