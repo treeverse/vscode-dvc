@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.0] - 2026-01-30
+
+### 🔨 Maintenance
+
+- chore(deps): update dependency dvc to v3.66.1 [#6061](https://github.com/treeverse/vscode-dvc/pull/6061) by [@renovate[bot]](https://github.com/renovate%5Bbot%5D)
+- use lakefs publisher [#6064](https://github.com/treeverse/vscode-dvc/pull/6064) by [@skshetry](https://github.com/skshetry)
+
 ## [1.2.31] - 2025-12-22
 
 ### 🔨 Maintenance
