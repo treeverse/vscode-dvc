@@ -1,5 +1,5 @@
 {
-  "name": "dvc",
+  "name": "lakefs-dvc",
   "private": true,
   "preview": false,
   "displayName": "DVC by lakeFS",
