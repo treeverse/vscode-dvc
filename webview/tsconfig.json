@@ -11,7 +11,11 @@
     "sourceMap": true,
     "jsx": "react",
     "experimentalDecorators": true,
-    "lib": ["es2022", "dom"]
+    "lib": ["es2022", "dom"],
+    "baseUrl": ".",
+    "paths": {
+      "dvc/*": ["../extension/*"]
+    }
   },
   "include": ["src/**/*", "webpack.config.ts", "__mocks__"]
 }
