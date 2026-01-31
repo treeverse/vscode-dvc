@@ -67,7 +67,7 @@
     "typescript": "5.4.5"
   },
   "resolutions": {
-    "@types/react": "18.3.26",
+    "@types/react": "18.3.27",
     "**/recursive-readdir/minimatch": "6.2.0",
     "decode-uri-component": "0.2.2",
     "express": "5.2.0",
