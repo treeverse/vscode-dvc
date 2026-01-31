@@ -46,10 +46,12 @@ export enum Command {
   QUEUE = 'queue',
   REMOVE = 'remove',
   REMOTE = 'remote',
+  REPRO = 'repro',
   ROOT = 'root',
   PARAMS = 'params',
   METRICS = 'metrics',
-  STAGE = 'stage'
+  STAGE = 'stage',
+  STATUS = 'status'
 }
 
 export enum SubCommand {
@@ -65,6 +67,7 @@ export enum SubCommand {
 
 export enum Flag {
   ALL_COMMITS = '-A',
+  DRY = '--dry',
   FOLLOW = '--follow',
   DEFAULT = '-d',
   FORCE = '-f',
@@ -78,6 +81,7 @@ export enum Flag {
   PROJECT = '--project',
   NUM_COMMIT = '-n',
   OUTPUT_PATH = '-o',
+  SINGLE_ITEM = '-s',
   SUBDIRECTORY = '--subdir',
   SET_PARAM = '-S',
   SPLIT = '--split',

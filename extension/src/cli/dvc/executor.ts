@@ -29,7 +29,8 @@ export const autoRegisteredCommands = {
   QUEUE_KILL: 'queueKill',
   QUEUE_START: 'queueStart',
   QUEUE_STOP: 'queueStop',
-  REMOVE: 'remove'
+  REMOVE: 'remove',
+  REPRO_DRY: 'reproDry'
 } as const
 
 export class DvcExecutor extends DvcCli {
@@ -160,6 +161,17 @@ export class DvcExecutor extends DvcCli {
 
   public remove(cwd: string, ...args: Args) {
     return this.blockAndExecuteProcess(cwd, Command.REMOVE, ...args)
+  }
+
+  public reproDry(cwd: string, stageName: string) {
+    return this.executeDvcProcess(
+      cwd,
+      Command.REPRO,
+      stageName,
+      Flag.SINGLE_ITEM,
+      Flag.FORCE,
+      Flag.DRY
+    )
   }
 
   private executeExperimentProcess(cwd: string, ...args: Args) {
