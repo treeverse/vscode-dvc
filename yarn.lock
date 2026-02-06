@@ -5767,10 +5767,10 @@ chai-as-promised@7.1.2:
   dependencies:
     check-error "^1.0.2"
 
-chai@6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/chai/-/chai-6.2.0.tgz#181bca6a219cddb99c3eeefb82483800ffa550ce"
-  integrity sha512-aUTnJc/JipRzJrNADXVvpVqi6CO0dn3nx4EVPxijri+fj3LUUDyZQOgVeW54Ob3Y1Xh9Iz8f+CgaCl8v0mn9bA==
+chai@6.2.2:
+  version "6.2.2"
+  resolved "https://registry.yarnpkg.com/chai/-/chai-6.2.2.tgz#ae41b52c9aca87734505362717f3255facda360e"
+  integrity sha512-NUPRluOfOiTKBKvWPtSD4PhFvWCqOi0BGStNWs57X9js7XGTprSmFoz5F0tWhR4WPjNeR9jXqdC7/UpSJTnlRg==
 
 chai@^4.2.0:
   version "4.3.6"
