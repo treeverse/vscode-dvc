@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.33] - 2026-02-13
+
+- no changes
+
 ## [1.2.32] - 2026-01-30
 
 ### 🔨 Maintenance
