@@ -1,5 +1,10 @@
 # DVC Extension for Visual Studio Code
 
+> [!WARNING]
+> This extension is deprecated in favor of [**DVC by lakeFS**](https://marketplace.visualstudio.com/items?itemName=lakefs.lakefs-dvc). It’s the same DVC extension, now published under a new publisher, and it’s the one that will receive updates going forward.
+>
+> Please uninstall this extension and install [**DVC by lakeFS**](https://marketplace.visualstudio.com/items?itemName=lakefs.lakefs-dvc).
+
 ![Version](https://img.shields.io/visual-studio-marketplace/v/iterative.dvc)
 ![Installs](https://img.shields.io/visual-studio-marketplace/i/iterative.dvc)
 ![Downloads](https://img.shields.io/visual-studio-marketplace/d/iterative.dvc)
