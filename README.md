@@ -152,7 +152,6 @@ These are the VS Code [settings] available for the Extension:
 | `dvc.focusedProjects`                       | A subset of paths to the workspace's available DVC projects. Using this option will override project auto-discovery.                                     |
 | `dvc.doNotInformMaxExperimentsPlotted`      | Do not inform when plotting more experiments is blocked (maximum number selected).                                                                       |
 | `dvc.doNotShowSetupAfterInstall`            | Do not prompt to show the setup page after installing. Useful for pre-configured development environments.                                               |
-| `dvc.doNotRecommendAddStudioToken`          | Do not prompt to add a [studio.token] to the global DVC config, which enables automatic sharing of experiments to [DVC Studio].                          |
 | `dvc.doNotRecommendRedHatExtension`         | Do not prompt to install the Red Hat YAML extension, which helps with DVC YAML schema validation (`dvc.yaml` and `.dvc` files).                          |
 | `dvc.doNotRecommendMermaidSupportExtension` | Do not prompt to install the Markdown Preview Mermaid Support extension, which helps to visualize DVC pipeline DAGs.                                     |
 | `dvc.doNotShowCliUnavailable`               | Do not warn when the workspace contains a DVC project but the DVC binary is unavailable.                                                                 |
@@ -167,25 +166,12 @@ the Python extension's selected interpreter will be used to locate DVC. The
 `PYTHONPATH` environment variable identified via the [python.envFile] config
 setting is also respected.
 
-### DVC Studio
-
-[Studio] is a collaboration platform for Machine Learning teams. The extension
-will help you to connect to [Studio] by providing guidance and managing the
-required [DVC config options]. See the DVC Studio section of the Setup page for
-more information.
-
 [python extension]:
   https://marketplace.visualstudio.com/items?itemName=ms-python.python
-[studio.token]:
-  https://dvc.org/doc/user-guide/project-structure/configuration#studio
-[dvc studio]: https://studio.datachain.ai
-[studio]: https://studio.datachain.ai
 [workspace level]:
   https://code.visualstudio.com/docs/getstarted/settings#_workspace-settings
 [python.envFile]:
   https://code.visualstudio.com/docs/python/environments#_use-of-the-pythonpath-variable
-[dvc config options]:
-  https://dvc.org/doc/user-guide/project-structure/configuration#studio
 
 ## Debugging
 
