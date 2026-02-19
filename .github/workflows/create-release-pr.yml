@@ -52,7 +52,7 @@ jobs:
         id: update_version
         run: |
           OVERRIDE_VERSION=${{ github.event.inputs.override_version }}
-          yarn workspace dvc version --new-version ${OVERRIDE_VERSION:-patch} --no-git-tag-version
+          yarn workspace lakefs-dvc version --new-version ${OVERRIDE_VERSION:-patch} --no-git-tag-version
           echo "new_version=$(cat extension/package.json | jq -r .version)" >> $GITHUB_OUTPUT
 
       - name: Update Changelog
