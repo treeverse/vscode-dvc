@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.1] - 2026-02-25
+
+- chore(deps): update dependency @swc/core to v1.15.10 [#6075](https://github.com/treeverse/vscode-dvc/pull/6075) by [@renovate[bot]](https://github.com/renovate%5Bbot%5D)
+- chore(deps): update dependency @types/react to v18.3.27 [#6079](https://github.com/treeverse/vscode-dvc/pull/6079) by [@renovate[bot]](https://github.com/renovate%5Bbot%5D)
+- chore(deps): update dependency @vscode/codicons to v0.0.44 [#6080](https://github.com/treeverse/vscode-dvc/pull/6080) by [@renovate[bot]](https://github.com/renovate%5Bbot%5D)
+- chore(deps): update dependency chai to v6.2.2 [#6081](https://github.com/treeverse/vscode-dvc/pull/6081) by [@renovate[bot]](https://github.com/renovate%5Bbot%5D)
+- chore(deps): update dependency fastify to v5 [security] [#6083](https://github.com/treeverse/vscode-dvc/pull/6083) by [@renovate[bot]](https://github.com/renovate%5Bbot%5D)
+- chore(deps): update demo digest to 8518e87 [#6089](https://github.com/treeverse/vscode-dvc/pull/6089) by [@renovate[bot]](https://github.com/renovate%5Bbot%5D)
+- chore(deps): update dependency webpack to v5.104.1 [security] [#6086](https://github.com/treeverse/vscode-dvc/pull/6086) by [@renovate[bot]](https://github.com/renovate%5Bbot%5D)
+- chore(deps): update dependency minimatch to v6.2.1 [security] [#6091](https://github.com/treeverse/vscode-dvc/pull/6091) by [@renovate[bot]](https://github.com/renovate%5Bbot%5D)
+- fix changelog config [#6095](https://github.com/treeverse/vscode-dvc/pull/6095) by [@skshetry](https://github.com/skshetry)
+
 ## [1.3.0] - 2026-01-30
 
 ### 🔨 Maintenance
