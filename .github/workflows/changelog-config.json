@@ -14,5 +14,5 @@
     }
   ],
   "pr_template": "- #{{TITLE}} [##{{NUMBER}}](https://github.com/treeverse/vscode-dvc/pull/#{{NUMBER}}) by [@#{{AUTHOR}}](https://github.com/#{{AUTHOR}})",
-  "empty_template": "No changes"
+  "template": "#{{CHANGELOG}}\n\n#{{UNCATEGORIZED}}"
 }
