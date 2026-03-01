@@ -68,7 +68,7 @@
   },
   "resolutions": {
     "@types/react": "18.3.27",
-    "**/recursive-readdir/minimatch": "6.2.1",
+    "**/recursive-readdir/minimatch": "9.0.7",
     "decode-uri-component": "0.2.2",
     "express": "5.2.0",
     "fastify": "5.7.3",
