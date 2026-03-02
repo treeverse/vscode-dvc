@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.2] - 2026-03-02
+
+- chore(deps): update dependency minimatch to v9 [security] [#6094](https://github.com/treeverse/vscode-dvc/pull/6094) by [@renovate[bot]](https://github.com/renovate%5Bbot%5D)
+- s/iterative/treeverse/g [#6102](https://github.com/treeverse/vscode-dvc/pull/6102) by [@skshetry](https://github.com/skshetry)
+
 ## [1.3.1] - 2026-02-25
 
 - no changes
