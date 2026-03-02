@@ -1,9 +1,9 @@
 # DVC Extension for Visual Studio Code
 
-![Version](https://img.shields.io/visual-studio-marketplace/v/iterative.dvc)
-![Installs](https://img.shields.io/visual-studio-marketplace/i/iterative.dvc)
-![Downloads](https://img.shields.io/visual-studio-marketplace/d/iterative.dvc)
-![Rating](https://img.shields.io/visual-studio-marketplace/r/iterative.dvc)
+![Version](https://img.shields.io/visual-studio-marketplace/v/lakefs.lakefs-dvc)
+![Installs](https://img.shields.io/visual-studio-marketplace/i/lakefs.lakefs-dvc)
+![Downloads](https://img.shields.io/visual-studio-marketplace/d/lakefs.lakefs-dvc)
+![Rating](https://img.shields.io/visual-studio-marketplace/r/lakefs.lakefs-dvc)
 
 [![Continuous Integration](https://github.com/treeverse/vscode-dvc/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/treeverse/vscode-dvc/actions/workflows/continuous-integration.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/394dc6629c487ab8776c/maintainability)](https://codeclimate.com/github/treeverse/vscode-dvc/maintainability)
@@ -67,9 +67,9 @@ to the [DVC YouTube channel](https://www.youtube.com/@dvcorg8370/videos)!
 > Codespaces] will include this extension automatically.
 
 [this extension]:
-  https://marketplace.visualstudio.com/items?itemName=Iterative.dvc
+  https://marketplace.visualstudio.com/items?itemName=lakeFS.lakefs-dvc
 [example dvc project]:
-  https://github.com/iterative/example-get-started-experiments
+  https://github.com/treeverse/example-get-started-experiments
 [with github codespaces]:
   https://docs.github.com/en/codespaces/getting-started/quickstart#creating-your-codespace
 
