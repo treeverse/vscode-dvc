@@ -4,7 +4,7 @@ export const openUrl = (url: string) => env.openExternal(Uri.parse(url))
 
 export const getCallBackUrl = async (path: string) => {
   const uri = await env.asExternalUri(
-    Uri.parse(`${env.uriScheme}://iterative.dvc${path}`)
+    Uri.parse(`${env.uriScheme}://lakefs.lakefs-dvc${path}`)
   )
 
   return uri.toString()

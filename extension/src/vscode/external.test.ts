@@ -31,7 +31,7 @@ describe('openUrl', () => {
 
 describe('getCallbackUrl', () => {
   it('should return a vscode uri with the provided path', async () => {
-    const mockUrl = `${mockedUriScheme}://iterative.dvc/path`
+    const mockUrl = `${mockedUriScheme}://lakefs.lakefs-dvc/path`
     const mockUri = Uri.parse(mockUrl)
     mockedAsExternalUri.mockResolvedValueOnce(mockUri)
 
@@ -55,7 +55,7 @@ describe('waitForUriResponse', () => {
     expect(mockedRegisterUriHandler).toHaveBeenCalledTimes(1)
 
     const uriWithoutPath = Uri.from({
-      authority: 'iterative.dvc',
+      authority: 'lakefs.lakefs-dvc',
       path: '/path-but-not-the-right-one',
       scheme: mockedUriScheme
     })
@@ -63,7 +63,7 @@ describe('waitForUriResponse', () => {
     expect(mockOnResponse).not.toHaveBeenCalled()
 
     const uriWithPath = Uri.from({
-      authority: 'iterative.dvc',
+      authority: 'lakefs.lakefs-dvc',
       path: '/path',
       scheme: mockedUriScheme
     })
