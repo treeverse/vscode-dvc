@@ -47,8 +47,12 @@ jobs:
         run: xvfb-run -a yarn run cover
 
       - name: Publish to Chromatic
-        if: '!github.event.pull_request.head.repo.fork'
+        if:
+          ${{ !github.event.pull_request.head.repo.fork &&
+          env.CHROMATIC_PROJECT_TOKEN != '' }}
         uses: chromaui/action@v13
+        env:
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
