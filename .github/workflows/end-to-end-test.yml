@@ -29,7 +29,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '24'
           cache: 'yarn'
 
       - name: Clean Up Disk Space
@@ -58,7 +58,7 @@ jobs:
         with:
           run: yarn test:e2e
           options: '-screen 0 1600x1200x24'
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: screenshots

@@ -24,7 +24,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '24'
           cache: 'yarn'
 
       - name: Turbo cache
@@ -50,7 +50,7 @@ jobs:
         if:
           ${{ !github.event.pull_request.head.repo.fork &&
           env.CHROMATIC_PROJECT_TOKEN != '' }}
-        uses: chromaui/action@v13
+        uses: chromaui/action@v14
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
         with:

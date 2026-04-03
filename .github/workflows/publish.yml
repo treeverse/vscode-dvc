@@ -30,14 +30,14 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '24'
           cache: 'yarn'
 
       - run: yarn install
       - run: yarn build
 
       - name: Upload VSIX
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: dvc.vsix
           path: ./extension/dvc.vsix
