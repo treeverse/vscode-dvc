@@ -37,7 +37,7 @@ jobs:
       - run: yarn build
 
       - name: Upload VSIX
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: dvc.vsix
           path: ./extension/dvc.vsix
