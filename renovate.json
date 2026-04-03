@@ -1,4 +1,7 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "ignorePresets": [":ignoreModulesAndTests"],
   "ignoreDeps": [
     "@types/node",
     "@types/vscode",
@@ -7,29 +10,179 @@
     "process-exists",
     "webdriverio"
   ],
-  "extends": ["config:recommended"],
-  "ignorePresets": [":ignoreModulesAndTests"],
+  "minimumReleaseAge": "14 days",
+  "internalChecksFilter": "strict",
+  "prConcurrentLimit": 3,
   "packageRules": [
     {
-      "internalChecksFilter": "strict",
+      "description": "Catch-all for remaining minor/patch npm updates — must be first so specific groups below override it",
+      "groupName": "minor and patch updates",
       "matchDatasources": ["npm"],
-      "prConcurrentLimit": 1,
-      "minimumReleaseAge": "7 days"
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchPackageNames": ["*"],
+      "prPriority": -1
     },
     {
+      "description": "DVC CLI version bump and demo project update — no release age gate",
       "groupName": "update demo project and latest tested CLI version",
       "matchDepNames": ["dvc", "demo"],
       "minimumReleaseAge": null,
       "labels": ["housekeeping"]
     },
     {
+      "description": "GitHub Actions updates",
       "groupName": "github actions",
       "matchManagers": ["github-actions"],
       "labels": ["housekeeping"]
     },
     {
-      "matchDepNames": ["microsoft/vscode"],
-      "minimumReleaseAge": "7 days"
+      "description": "VS Code engine version for e2e tests",
+      "matchDepNames": ["microsoft/vscode"]
+    },
+    {
+      "description": "Type definitions — general catch-all, overridden by specific groups below",
+      "groupName": "types",
+      "matchPackageNames": ["@types/*"],
+      "matchDatasources": ["npm"]
+    },
+    {
+      "description": "Jest, SWC, and unit test infrastructure",
+      "groupName": "jest",
+      "matchPackageNames": [
+        "jest",
+        "jest-*",
+        "@swc/core",
+        "@swc/jest",
+        "@testing-library/*",
+        "@types/jest"
+      ],
+      "matchDatasources": ["npm"]
+    },
+    {
+      "description": "Mocha, Chai, Sinon — integration test framework",
+      "groupName": "integration test framework",
+      "matchPackageNames": [
+        "mocha",
+        "chai",
+        "chai-*",
+        "sinon",
+        "sinon-*",
+        "@types/mocha",
+        "@types/chai",
+        "@types/chai-as-promised",
+        "@types/sinon-chai"
+      ],
+      "matchDatasources": ["npm"]
+    },
+    {
+      "description": "WebDriverIO e2e test packages",
+      "groupName": "webdriverio",
+      "matchPackageNames": ["@wdio/*", "wdio-*"],
+      "matchDatasources": ["npm"]
+    },
+    {
+      "description": "Webpack and associated loaders/plugins",
+      "groupName": "webpack",
+      "matchPackageNames": [
+        "webpack",
+        "webpack-cli",
+        "webpack-dev-server",
+        "ts-loader",
+        "css-loader",
+        "style-loader",
+        "sass-loader",
+        "file-loader",
+        "raw-loader",
+        "clean-webpack-plugin",
+        "copy-webpack-plugin",
+        "fork-ts-checker-webpack-plugin",
+        "@types/webpack",
+        "@types/copy-webpack-plugin"
+      ],
+      "matchDatasources": ["npm"]
+    },
+    {
+      "description": "ESLint, Prettier, Stylelint and related plugins/configs",
+      "groupName": "linters",
+      "matchPackageNames": [
+        "eslint",
+        "eslint-*",
+        "@typescript-eslint/*",
+        "stylelint",
+        "stylelint-*",
+        "prettier",
+        "prettier-*"
+      ],
+      "matchDatasources": ["npm"]
+    },
+    {
+      "description": "Storybook packages",
+      "groupName": "storybook",
+      "matchPackageNames": ["@storybook/*", "storybook", "storybook-*"],
+      "matchDatasources": ["npm"]
+    },
+    {
+      "description": "VS Code Language Server protocol packages",
+      "groupName": "language server",
+      "matchPackageNames": [
+        "vscode-languageserver",
+        "vscode-languageserver-*",
+        "vscode-languageclient",
+        "vscode-uri"
+      ],
+      "matchDatasources": ["npm"]
+    },
+    {
+      "description": "VS Code extension build/test tooling",
+      "groupName": "vscode tooling",
+      "matchPackageNames": [
+        "@vscode/test-electron",
+        "@vscode/vsce",
+        "@vscode/codicons",
+        "@vscode/webview-ui-toolkit"
+      ],
+      "matchDatasources": ["npm"]
+    },
+    {
+      "description": "React ecosystem",
+      "groupName": "react",
+      "matchPackageNames": [
+        "react",
+        "react-dom",
+        "react-redux",
+        "react-intersection-observer",
+        "react-virtualized",
+        "prism-react-renderer",
+        "@reduxjs/toolkit",
+        "@tanstack/react-table",
+        "@tippyjs/react",
+        "@types/react-dom",
+        "@types/react-virtualized"
+      ],
+      "matchDatasources": ["npm"]
+    },
+    {
+      "description": "Vega visualization packages",
+      "groupName": "vega",
+      "matchPackageNames": [
+        "vega-lite",
+        "vega-util",
+        "react-vega",
+        "@types/vega"
+      ],
+      "matchDatasources": ["npm"]
+    },
+    {
+      "description": "Lodash utility packages",
+      "groupName": "lodash",
+      "matchPackageNames": ["lodash", "lodash.*", "@types/lodash.*"],
+      "matchDatasources": ["npm"]
+    },
+    {
+      "description": "SVGR icon generation",
+      "groupName": "svgr",
+      "matchPackageNames": ["@svgr/*"],
+      "matchDatasources": ["npm"]
     }
   ],
   "git-submodules": {
