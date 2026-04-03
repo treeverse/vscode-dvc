@@ -1627,7 +1627,7 @@
     "uuid": "11.0.5",
     "vega-lite": "5.14.1",
     "vscode-languageclient": "9.0.1",
-    "yaml": "2.7.0"
+    "yaml": "2.8.3"
   },
   "devDependencies": {
     "@swc/core": "1.15.10",
