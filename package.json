@@ -74,7 +74,7 @@
     "fastify": "5.8.3",
     "follow-redirects": "1.15.9",
     "json5": "2.2.3",
-    "loader-utils": "2.0.4",
+    "loader-utils": "3.3.1",
     "postcss": "^8.4.31",
     "terser": "5.37.0",
     "trim-newlines": "3.0.1",
