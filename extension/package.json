@@ -1624,7 +1624,7 @@
     "node-fetch": "2.7.0",
     "process-exists": "4.1.0",
     "tree-kill": "1.2.2",
-    "uuid": "11.0.5",
+    "uuid": "14.0.0",
     "vega-lite": "5.14.1",
     "vscode-languageclient": "9.0.1",
     "yaml": "2.8.3"
