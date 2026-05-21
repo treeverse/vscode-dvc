@@ -2009,15 +2009,10 @@
   dependencies:
     "@nevware21/ts-utils" ">= 0.11.5 < 2.x"
 
-"@nevware21/ts-utils@>= 0.10.4 < 2.x", "@nevware21/ts-utils@>= 0.11.3 < 2.x", "@nevware21/ts-utils@>= 0.11.5 < 2.x":
-  version "0.11.5"
-  resolved "https://registry.yarnpkg.com/@nevware21/ts-utils/-/ts-utils-0.11.5.tgz#b900f5d04e657a96e096a58dad6e0b7aed273efb"
-  integrity sha512-7nIzWKR50mf3htOg53kwPLqD5iJaRfVyBvb1NJhlIncyP1WzK8vAQbU9rqIsRtv7td1CnqspdP6IWNEjOjaeug==
-
-"@nevware21/ts-utils@>= 0.9.4 < 2.x":
-  version "0.9.5"
-  resolved "https://registry.yarnpkg.com/@nevware21/ts-utils/-/ts-utils-0.9.5.tgz#b047e3f197f5764cbb911494c5f0b33da5296ebe"
-  integrity sha512-hCUM1/HKLcHKWeTjX/ervVOp6eim+XEdFI3U7NUU+yec7XPQTxe4sDujPY5unlTQ2CHpxTewRo7mIyaRdMFlUw==
+"@nevware21/ts-utils@>= 0.10.4 < 2.x", "@nevware21/ts-utils@>= 0.11.3 < 2.x", "@nevware21/ts-utils@>= 0.11.5 < 2.x", "@nevware21/ts-utils@>= 0.9.4 < 2.x":
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/@nevware21/ts-utils/-/ts-utils-0.14.0.tgz#9e6074ce28f0b1bab7bfdacd1a7760b2ba73688d"
+  integrity sha512-WoeqTIXQ8WPhl+lD2NbMHoAQ4sJl0n7EoRoDmVJui//Usg512enl9q1fdbVobuZt3omnxnmVsDrNIvPBvFgddQ==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
