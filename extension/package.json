@@ -1613,7 +1613,7 @@
     "appdirs": "1.1.0",
     "execa": "5.1.1",
     "fs-extra": "11.3.2",
-    "json-2-csv": "5.5.8",
+    "json-2-csv": "5.5.11",
     "json5": "2.2.3",
     "lodash.clonedeep": "4.5.0",
     "lodash.get": "4.4.2",
