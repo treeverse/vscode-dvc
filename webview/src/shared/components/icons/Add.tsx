@@ -9,7 +9,7 @@ const Add = (props: SVGProps<SVGSVGElement>) => (
     fill="currentColor"
     {...props}
   >
-    <path d="M14 7v1H8v6H7V8H1V7h6V1h1v6h6z" />
+    <path d="M8 1.5C8 1.22386 7.77614 1 7.5 1C7.22386 1 7 1.22386 7 1.5V7H1.5C1.22386 7 1 7.22386 1 7.5C1 7.77614 1.22386 8 1.5 8H7V13.5C7 13.7761 7.22386 14 7.5 14C7.77614 14 8 13.7761 8 13.5V8H13.5C13.7761 8 14 7.77614 14 7.5C14 7.22386 13.7761 7 13.5 7H8V1.5Z" />
   </svg>
 )
 export default Add

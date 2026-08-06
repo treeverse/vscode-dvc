@@ -25,7 +25,8 @@ suite('Pipeline Test Suite', () => {
     restore()
   })
 
-  afterEach(() => {
+  afterEach(function () {
+    disposable.dispose()
     return closeAllEditors()
   })
 

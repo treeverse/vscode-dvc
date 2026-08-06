@@ -349,7 +349,7 @@ suite('Experiments Data Test Suite', () => {
             expect(data).to.deep.equal({
               live: [],
               pushed: [],
-              view_url: mockBaseStudioUrl
+              viewUrl: mockBaseStudioUrl
             })
           }
         })
@@ -393,7 +393,7 @@ suite('Experiments Data Test Suite', () => {
             expect(data).to.deep.equal({
               live: [],
               pushed: [],
-              view_url: mockBaseStudioUrl
+              viewUrl: mockBaseStudioUrl
             })
           }
         })

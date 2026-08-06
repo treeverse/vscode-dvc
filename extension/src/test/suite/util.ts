@@ -212,9 +212,8 @@ export const buildInternalCommands = (disposer: Disposer) => {
   const gitReader = disposer.track(new GitReader())
   const gitExecutor = disposer.track(new GitExecutor())
 
-  const outputChannel = disposer.track(
-    new OutputChannel([dvcReader], '1', 'test output')
-  )
+  // not tracked due to https://github.com/microsoft/vscode/issues/232559
+  const outputChannel = new OutputChannel([dvcReader], '1', 'test output')
 
   const internalCommands = disposer.track(
     new InternalCommands(

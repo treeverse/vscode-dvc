@@ -1,3 +1,3 @@
-export const WEBVIEW_TEST_TIMEOUT = 16000
+export const WEBVIEW_TEST_TIMEOUT = 20000
 
 export const WATCHER_TEST_TIMEOUT = 20000

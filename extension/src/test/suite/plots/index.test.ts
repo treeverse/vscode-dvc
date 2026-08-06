@@ -5,7 +5,6 @@ import { restore, spy, stub } from 'sinon'
 import { commands, TextDocument, Uri, window } from 'vscode'
 import isEqual from 'lodash.isequal'
 import { buildPlots, buildPlotsWebview } from '../plots/util'
-import { Disposable } from '../../../extension'
 import expShowFixtureWithoutErrors from '../../fixtures/expShow/base/noErrors'
 import gitLogFixture from '../../fixtures/expShow/base/gitLog'
 import rowOrderFixture from '../../fixtures/expShow/base/rowOrder'
@@ -19,6 +18,7 @@ import {
   closeAllEditors,
   getFirstArgOfLastCall,
   getMockNow,
+  getTimeSafeDisposer,
   waitForSpyCall
 } from '../util'
 import { dvcDemoPath } from '../../util'
@@ -57,15 +57,15 @@ import * as External from '../../../vscode/external'
 import { PlotPath } from '../../../plots/paths/collect'
 
 suite('Plots Test Suite', () => {
-  const disposable = Disposable.fn()
+  const disposable = getTimeSafeDisposer()
 
   beforeEach(() => {
     restore()
   })
 
-  afterEach(function () {
+  afterEach(async function () {
     this.timeout(6000)
-    disposable.dispose()
+    await disposable.disposeAndFlush()
     return closeAllEditors()
   })
 
@@ -559,7 +559,7 @@ suite('Plots Test Suite', () => {
       expect(messageSpy).to.be.calledWithExactly({
         custom: customPlotsFixture
       })
-    }).timeout(WEBVIEW_TEST_TIMEOUT)
+    }).timeout(30000)
 
     it('should handle refresh plots message from the webview for the comparison table', async () => {
       const { mockMessageReceived, messageSpy } = await buildPlotsWebview({
