@@ -63,14 +63,20 @@ describe('RepositoryModel', () => {
           untracked: new Set()
         })
 
-      expect(scmDecorationState).toStrictEqual({
-        committedAdded: emptySet,
-        committedDeleted: makeAbsPathSet(dvcDemoPath, deleted),
-        committedModified: makeAbsPathSet(dvcDemoPath, output),
-        committedRenamed: makeAbsPathSet(dvcDemoPath, renamed),
-        committedUnknown: emptySet,
-        notInCache: emptySet,
-        tracked: makeAbsPathSet(
+      expect(scmDecorationState.committedAdded).toStrictEqual(new Set())
+      expect(scmDecorationState.committedDeleted).toStrictEqual(
+        makeAbsPathSet(dvcDemoPath, deleted)
+      )
+      expect(scmDecorationState.committedModified).toStrictEqual(
+        makeAbsPathSet(dvcDemoPath, output)
+      )
+      expect(scmDecorationState.committedRenamed).toStrictEqual(
+        makeAbsPathSet(dvcDemoPath, renamed)
+      )
+      expect(scmDecorationState.committedUnknown).toStrictEqual(new Set())
+      expect(scmDecorationState.notInCache).toStrictEqual(new Set())
+      expect(scmDecorationState.tracked).toStrictEqual(
+        makeAbsPathSet(
           dvcDemoPath,
           predictions,
           deleted,
@@ -81,20 +87,22 @@ describe('RepositoryModel', () => {
           scalarDir,
           logAcc,
           logLoss
-        ),
-        uncommittedAdded: emptySet,
-        uncommittedDeleted: emptySet,
-        uncommittedModified: makeAbsPathSet(
+        )
+      )
+      expect(scmDecorationState.uncommittedAdded).toStrictEqual(new Set())
+      expect(scmDecorationState.uncommittedDeleted).toStrictEqual(new Set())
+      expect(scmDecorationState.uncommittedModified).toStrictEqual(
+        makeAbsPathSet(
           dvcDemoPath,
           rawDataDir,
           logDir,
           scalarDir,
           logAcc,
           logLoss
-        ),
-        uncommittedRenamed: emptySet,
-        uncommittedUnknown: emptySet
-      })
+        )
+      )
+      expect(scmDecorationState.uncommittedRenamed).toStrictEqual(new Set())
+      expect(scmDecorationState.uncommittedUnknown).toStrictEqual(new Set())
 
       expect(sourceControlManagementState).toStrictEqual({
         committed: [
@@ -160,20 +168,16 @@ describe('RepositoryModel', () => {
 
       const absNotInCache = makeAbsPathSet(dvcDemoPath, ...notInCache)
 
-      expect(scmDecorationState).toStrictEqual({
-        committedAdded: emptySet,
-        committedDeleted: emptySet,
-        committedModified: emptySet,
-        committedRenamed: emptySet,
-        committedUnknown: emptySet,
-        notInCache: absNotInCache,
-        tracked: absNotInCache,
-        uncommittedAdded: emptySet,
-        uncommittedDeleted: absNotInCache,
-        uncommittedModified: emptySet,
-        uncommittedRenamed: emptySet,
-        uncommittedUnknown: emptySet
-      })
+      for (const [key, value] of Object.entries(scmDecorationState)) {
+        if (!(key in ['notInCache', 'tracked', 'notInCache'])) {
+          continue
+        }
+        expect(value).toStrictEqual(emptySet)
+      }
+
+      expect(scmDecorationState.tracked).toStrictEqual(absNotInCache)
+      expect(scmDecorationState.notInCache).toStrictEqual(absNotInCache)
+      expect(scmDecorationState.uncommittedDeleted).toStrictEqual(absNotInCache)
 
       const notInCacheScm = notInCache.map(path => ({
         contextValue: SourceControlDataStatus.NOT_IN_CACHE,
@@ -206,20 +210,15 @@ describe('RepositoryModel', () => {
           untracked: new Set()
         })
 
-      expect(scmDecorationState).toStrictEqual({
-        committedAdded: emptySet,
-        committedDeleted: emptySet,
-        committedModified: emptySet,
-        committedRenamed: emptySet,
-        committedUnknown: emptySet,
-        notInCache: emptySet,
-        tracked: makeAbsPathSet(dvcDemoPath, rawDataDir, data),
-        uncommittedAdded: emptySet,
-        uncommittedDeleted: emptySet,
-        uncommittedModified: emptySet,
-        uncommittedRenamed: emptySet,
-        uncommittedUnknown: emptySet
-      })
+      for (const [key, value] of Object.entries(scmDecorationState)) {
+        if (key === 'tracked') {
+          continue
+        }
+        expect(value).toStrictEqual(emptySet)
+      }
+      expect(scmDecorationState.tracked).toStrictEqual(
+        makeAbsPathSet(dvcDemoPath, rawDataDir, data)
+      )
 
       expect(sourceControlManagementState).toStrictEqual({
         committed: [],
