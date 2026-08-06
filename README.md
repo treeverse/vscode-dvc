@@ -1,10 +1,5 @@
 # DVC Extension for Visual Studio Code
 
-![Version](https://img.shields.io/visual-studio-marketplace/v/lakefs.lakefs-dvc)
-![Installs](https://img.shields.io/visual-studio-marketplace/i/lakefs.lakefs-dvc)
-![Downloads](https://img.shields.io/visual-studio-marketplace/d/lakefs.lakefs-dvc)
-![Rating](https://img.shields.io/visual-studio-marketplace/r/lakefs.lakefs-dvc)
-
 [![Continuous Integration](https://github.com/treeverse/vscode-dvc/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/treeverse/vscode-dvc/actions/workflows/continuous-integration.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/394dc6629c487ab8776c/maintainability)](https://codeclimate.com/github/treeverse/vscode-dvc/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/394dc6629c487ab8776c/test_coverage)](https://codeclimate.com/github/treeverse/vscode-dvc/test_coverage)
