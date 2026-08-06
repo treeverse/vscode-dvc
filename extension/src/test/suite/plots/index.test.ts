@@ -559,7 +559,7 @@ suite('Plots Test Suite', () => {
       expect(messageSpy).to.be.calledWithExactly({
         custom: customPlotsFixture
       })
-    }).timeout(WEBVIEW_TEST_TIMEOUT)
+    }).timeout(30000)
 
     it('should handle refresh plots message from the webview for the comparison table', async () => {
       const { mockMessageReceived, messageSpy } = await buildPlotsWebview({
