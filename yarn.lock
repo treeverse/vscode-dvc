@@ -8646,6 +8646,18 @@ fast-json-stringify@^6.0.0:
     json-schema-ref-resolver "^3.0.0"
     rfdc "^1.2.0"
 
+fast-json-stringify@^7.0.0:
+  version "7.3.10"
+  resolved "https://registry.yarnpkg.com/fast-json-stringify/-/fast-json-stringify-7.3.10.tgz#f01a5f9cd7a4f07ebb8e5c6f06af07ec2ec2b574"
+  integrity sha512-M8P1gBHMWlGzjHgRmZDCjAo+c50yjtG91Ej3CWmG2L8cX8Z5Ast5+vniZWvfyqKjfwrs85AiKisk4ADs6E6SkA==
+  dependencies:
+    "@fastify/merge-json-schemas" "^0.2.0"
+    ajv "^8.12.0"
+    ajv-formats "^3.0.1"
+    fast-uri "^4.0.0"
+    json-schema-ref-resolver "^3.0.0"
+    rfdc "^1.2.0"
+
 fast-levenshtein@^2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
@@ -8663,6 +8675,11 @@ fast-uri@^3.0.0, fast-uri@^3.0.1:
   resolved "https://registry.yarnpkg.com/fast-uri/-/fast-uri-3.1.0.tgz#66eecff6c764c0df9b762e62ca7edcfb53b4edfa"
   integrity sha512-iPeeDKJSWf4IEOasVVrknXpaBV0IApz/gp7S2bb7Z4Lljbl2MGJRqInZiUrQwV16cpzw/D3S5j5Julj/gT52AA==
 
+fast-uri@^4.0.0:
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/fast-uri/-/fast-uri-4.2.4.tgz#f6b8f47644c0c13a6bcc850b10e0dec88d41bcbd"
+  integrity sha512-ARrctoImibWG27hlPe0Gc93d6HwZBYipqd9QhnXyYzS101vKmqx2J/1R8kzhnnYTph0umtJqu9rqIuYtVDaAOg==
+
 fastest-levenshtein@^1.0.12:
   version "1.0.12"
   resolved "https://registry.yarnpkg.com/fastest-levenshtein/-/fastest-levenshtein-1.0.12.tgz#9990f7d3a88cc5a9ffd1f1745745251700d497e2"
@@ -8678,10 +8695,10 @@ fastify-plugin@^4.0.0:
   resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-4.4.0.tgz#ce9fab1352390199c3d55569fea43779699b58ae"
   integrity sha512-ovwFQG2qNy3jcCROiWpr94Hs0le+c7N/3t7m9aVwbFhkxcR/esp2xu25dP8e617HpQdmeDv+gFX4zagdUhDByw==
 
-fastify@5.8.3, fastify@^4.26.1:
-  version "5.8.3"
-  resolved "https://registry.yarnpkg.com/fastify/-/fastify-5.8.3.tgz#78b5006cf0731d788457b19bd482805316424c8c"
-  integrity sha512-XJXpRQ41+rsJ/GLeP9vyDC+fBXilcTlEXokMSexkdEkla4uf7ZQNaI5xl3el+kW5TZQulqYxLr659ey/KX7XmQ==
+fastify@5.12.1, fastify@^4.26.1:
+  version "5.12.1"
+  resolved "https://registry.yarnpkg.com/fastify/-/fastify-5.12.1.tgz#d3a736ed0d656d8ffeed909c7099809b24b9f008"
+  integrity sha512-FWi+tQvwxR/PeRX7Z2mhfEF5ozJ3jn9asiiclzKXNSzJRHAYcU924aIOKAdHFJ+YIKieh3cqr1IwCOvTr41B3Q==
   dependencies:
     "@fastify/ajv-compiler" "^4.0.5"
     "@fastify/error" "^4.0.0"
@@ -8689,11 +8706,11 @@ fastify@5.8.3, fastify@^4.26.1:
     "@fastify/proxy-addr" "^5.0.0"
     abstract-logging "^2.0.1"
     avvio "^9.0.0"
-    fast-json-stringify "^6.0.0"
-    find-my-way "^9.0.0"
+    fast-json-stringify "^7.0.0"
+    find-my-way "^9.6.0"
     light-my-request "^6.0.0"
     pino "^9.14.0 || ^10.1.0"
-    process-warning "^5.0.0"
+    process-warning "^5.1.0"
     rfdc "^1.3.1"
     secure-json-parse "^4.0.0"
     semver "^7.6.0"
@@ -8856,10 +8873,10 @@ find-cache-dir@^3.2.0, find-cache-dir@^3.3.1:
     make-dir "^3.0.2"
     pkg-dir "^4.1.0"
 
-find-my-way@^9.0.0:
-  version "9.5.0"
-  resolved "https://registry.yarnpkg.com/find-my-way/-/find-my-way-9.5.0.tgz#3e6819bf4310b5293f490c032e70be0b506d0dc8"
-  integrity sha512-VW2RfnmscZO5KgBY5XVyKREMW5nMZcxDy+buTOsL+zIPnBlbKm+00sgzoQzq1EVh4aALZLfKdwv6atBGcjvjrQ==
+find-my-way@^9.6.0:
+  version "9.10.2"
+  resolved "https://registry.yarnpkg.com/find-my-way/-/find-my-way-9.10.2.tgz#688a137e54077c6a202698dd7a9b33d36d3549da"
+  integrity sha512-gbLMuTm2FV5QiRh/eM0uhL4nyOvbSqqa2K3mASAtkIqxvY8ZmoLOCLMd2syLWT/SyhrvOR7GPxOKj/kcV6o8bg==
   dependencies:
     fast-deep-equal "^3.1.3"
     fast-querystring "^1.0.0"
@@ -13797,6 +13814,11 @@ process-warning@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/process-warning/-/process-warning-5.0.0.tgz#566e0bf79d1dff30a72d8bbbe9e8ecefe8d378d7"
   integrity sha512-a39t9ApHNx2L4+HBnQKqxxHNs1r7KF+Intd8Q/g1bUh6q0WIp9voPXJ/x0j+ZL45KF1pJd9+q2jLIRMfvEshkA==
+
+process-warning@^5.1.0:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/process-warning/-/process-warning-5.1.1.tgz#9c7f34dd637100966be7d32661831ea328ea776b"
+  integrity sha512-oCkNVj4OKnKEcocVBcDfiIugN1/cE6rgfT3nCtzeqZPA8+rIxMaQ0xXzIkGP8Gj2qUaP1UR7uhJ1VD8lUCpzCg==
 
 process@^0.11.10:
   version "0.11.10"
