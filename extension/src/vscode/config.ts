@@ -10,6 +10,7 @@ export enum ConfigKey {
   DVC_PATH = 'dvc.dvcPath',
   EXP_TABLE_HEAD_MAX_HEIGHT = 'dvc.experimentsTableHeadMaxHeight',
   FOCUSED_PROJECTS = 'dvc.focusedProjects',
+  PIPELINE_COLLAPSE_FOREACH_MATRIX = 'dvc.pipelineGraph.collapseForeachMatrix',
   PYTHON_PATH = 'dvc.pythonPath'
 }
 

@@ -153,6 +153,10 @@ export class Pipeline extends DeferredDisposable {
     return appendFileSync(join(this.dvcRoot, TEMP_DAG_FILE), '\n')
   }
 
+  public toggleDagCollapse() {
+    return this.data.toggleDagCollapse()
+  }
+
   private findPipelineCwd() {
     const focusedPipeline = this.getFocusedPipeline()
     if (focusedPipeline) {

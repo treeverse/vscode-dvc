@@ -154,10 +154,15 @@ These are the VS Code [settings] available for the Extension:
 | `dvc.doNotShowSetupAfterInstall`            | Do not prompt to show the setup page after installing. Useful for pre-configured development environments.                                               |
 | `dvc.doNotRecommendRedHatExtension`         | Do not prompt to install the Red Hat YAML extension, which helps with DVC YAML schema validation (`dvc.yaml` and `.dvc` files).                          |
 | `dvc.doNotRecommendMermaidSupportExtension` | Do not prompt to install the Markdown Preview Mermaid Support extension, which helps to visualize DVC pipeline DAGs.                                     |
+| `dvc.pipelineGraph.collapseForeachMatrix`   | Collapse foreach and matrix stages in Show Pipeline DAG. Off by default. Requires DVC 3.66.0 or newer.                                                   |
 | `dvc.doNotShowCliUnavailable`               | Do not warn when the workspace contains a DVC project but the DVC binary is unavailable.                                                                 |
 
 > **Note** that the `Setup The Workspace` command helps you set up the basic
 > ones at the [Workspace level] (saved to `.vscode/setting.json`).
+
+Use **DVC: Toggle Pipeline DAG Collapse** in the Command Palette or in the graph
+preview toolbar to switch between expanded and collapsed for the session. The
+toolbar action requires VS Code's Markdown Preview editor.
 
 ### Python
 

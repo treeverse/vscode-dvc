@@ -10,4 +10,8 @@ export const registerPipelineCommands = (
     RegisteredCommands.PIPELINE_SHOW_DAG,
     () => pipelines.showDag()
   )
+  internalCommands.registerExternalCommand(
+    RegisteredCommands.PIPELINE_TOGGLE_DAG_COLLAPSE,
+    () => pipelines.toggleDagCollapse()
+  )
 }

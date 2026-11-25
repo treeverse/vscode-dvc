@@ -22,8 +22,11 @@ export class ProcessManager extends Disposable {
     }
   }
 
-  public async run(name: string): Promise<void> {
+  public async run(name: string, debounce = true): Promise<void> {
     this.checkCanRun(name)
+    if (!debounce) {
+      delete this.processes[name].lastStarted
+    }
     const { process, lastStarted } = this.processes[name]
 
     if (this.shouldDebounce(lastStarted)) {

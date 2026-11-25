@@ -1,15 +1,19 @@
 import { dirname } from 'path'
+import { Uri, workspace } from 'vscode'
 import { AvailableCommands, InternalCommands } from '../commands/internal'
 import { BaseData } from '../data'
 import { findFiles } from '../fileSystem/workspace'
 import { isPathInProject } from '../fileSystem'
-import { TEMP_EXP_DIR } from '../cli/dvc/constants'
+import { Flag, TEMP_EXP_DIR } from '../cli/dvc/constants'
+import { ConfigKey } from '../vscode/config'
 
 export class PipelineData extends BaseData<{
   dag: string
   stages: { [pipeline: string]: string | undefined }
 }> {
   private readonly subProjects: string[]
+  private readonly scope: Uri
+  private collapseOverride: boolean | undefined
 
   constructor(
     dvcRoot: string,
@@ -25,6 +29,20 @@ export class PipelineData extends BaseData<{
     )
 
     this.subProjects = subProjects
+    this.scope = Uri.file(dvcRoot)
+    this.dispose.track(
+      workspace.onDidChangeConfiguration(event => {
+        if (
+          event.affectsConfiguration(
+            ConfigKey.PIPELINE_COLLAPSE_FOREACH_MATRIX,
+            this.scope
+          )
+        ) {
+          this.collapseOverride = undefined
+          void this.processManager.run('update', false)
+        }
+      })
+    )
     this.waitForInitialData()
   }
 
@@ -32,9 +50,19 @@ export class PipelineData extends BaseData<{
     return this.processManager.run('update')
   }
 
+  public toggleDagCollapse() {
+    this.collapseOverride = !this.shouldCollapseDag()
+    return this.processManager.run('update', false)
+  }
+
   public async update(): Promise<void> {
+    const collapse = this.shouldCollapseDag()
     const [dag, fileList] = await Promise.all([
-      this.internalCommands.executeCommand(AvailableCommands.DAG, this.dvcRoot),
+      this.internalCommands.executeCommand(
+        AvailableCommands.DAG,
+        this.dvcRoot,
+        ...(collapse ? [Flag.COLLAPSE_FOREACH_MATRIX] : [])
+      ),
       this.findDvcYamls()
     ])
 
@@ -61,5 +89,14 @@ export class PipelineData extends BaseData<{
   private async findDvcYamls() {
     const dvcYamls = await findFiles('**/dvc.yaml')
     return dvcYamls.filter(file => !file.includes(TEMP_EXP_DIR))
+  }
+
+  private shouldCollapseDag() {
+    return (
+      this.collapseOverride ??
+      workspace
+        .getConfiguration(undefined, this.scope)
+        .get(ConfigKey.PIPELINE_COLLAPSE_FOREACH_MATRIX, false)
+    )
   }
 }
