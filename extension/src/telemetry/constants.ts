@@ -193,6 +193,7 @@ export interface IEventNamePropertyMapping {
   [EventName.STOP_EXPERIMENTS]: { stopped: boolean; wasRunning: boolean }
 
   [EventName.PIPELINE_SHOW_DAG]: undefined
+  [EventName.PIPELINE_TOGGLE_DAG_COLLAPSE]: undefined
 
   [EventName.PLOTS_PATH_TOGGLE]: undefined
   [EventName.PLOTS_SHOW]: undefined

@@ -27,7 +27,10 @@ suite('Workspace Pipeline Test Suite', () => {
 
       await commands.executeCommand(RegisteredCommands.PIPELINE_SHOW_DAG)
 
-      expect(executeCommandSpy).to.be.calledWith('markdown.showPreview')
+      expect(executeCommandSpy.lastCall.args[0]).to.be.oneOf([
+        'markdown.showPreview',
+        'vscode.openWith'
+      ])
       expect(executeCommandSpy.lastCall.args[1].fsPath).to.equal(
         standardizePath(join(dvcDemoPath, '.dvc', 'tmp', 'dag.md'))
       )

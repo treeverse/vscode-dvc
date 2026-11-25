@@ -400,6 +400,12 @@
         "icon": "$(symbol-class)"
       },
       {
+        "title": "Toggle Pipeline DAG Collapse",
+        "command": "dvc.togglePipelineDagCollapse",
+        "category": "DVC",
+        "icon": "$(fold)"
+      },
+      {
         "title": "Add Plot",
         "command": "dvc.addPlot",
         "category": "DVC",
@@ -598,6 +604,12 @@
           "description": "Do not prompt to install the Red Hat YAML extension, which helps with DVC YAML schema validation.",
           "type": "boolean",
           "default": null
+        },
+        "dvc.pipelineGraph.collapseForeachMatrix": {
+          "description": "Collapse foreach and matrix stages in Show Pipeline DAG. Requires DVC 3.66.0 or newer.",
+          "type": "boolean",
+          "default": false,
+          "scope": "resource"
         },
         "dvc.doNotRecommendMermaidSupportExtension": {
           "description": "Do not prompt to install the Markdown Preview Mermaid Support extension, which helps to visualize DVC pipeline DAGs",
@@ -863,6 +875,10 @@
           "when": "dvc.commands.available && dvc.project.available"
         },
         {
+          "command": "dvc.togglePipelineDagCollapse",
+          "when": "dvc.commands.available && dvc.project.available"
+        },
+        {
           "command": "dvc.addPlot",
           "when": "dvc.commands.available && dvc.project.available"
         },
@@ -1083,6 +1099,11 @@
           "command": "dvc.showPipelineDAG",
           "group": "navigation@0",
           "when": "dvc.pipeline.file.active && dvc.commands.available && dvc.project.available"
+        },
+        {
+          "command": "dvc.togglePipelineDagCollapse",
+          "group": "navigation@1",
+          "when": "dvc.commands.available && dvc.project.available && activeCustomEditorId == vscode.markdown.preview.editor && resourcePath =~ /[\\\\\\/]\\.dvc[\\\\\\/]tmp[\\\\\\/]dag\\.md$/"
         },
         {
           "command": "dvc.runExperiment",

@@ -18,11 +18,16 @@ import {
   RawPlotsOutput
 } from './contract'
 import { getOptions } from './options'
+import {
+  COLLAPSE_FOREACH_MATRIX_MIN_VERSION,
+  supportsCollapseForeachMatrix
+} from './version'
 import { typeCheckCommands } from '..'
 import { MaybeConsoleError } from '../error'
 import { Logger } from '../../common/logger'
 import { parseNonStandardJson } from '../../util/json'
 import { definedAndNonEmpty } from '../../util/array'
+import { Toast } from '../../vscode/toast'
 
 export const isDvcError = <
   T extends ExpShowOutput | DataStatusOutput | RawPlotsOutput
@@ -48,9 +53,23 @@ export class DvcReader extends DvcCli {
     this
   )
 
-  public async dag(cwd: string) {
+  private warnedAboutDagVersion = false
+
+  public async dag(cwd: string, collapse?: Flag.COLLAPSE_FOREACH_MATRIX) {
     try {
-      return await this.executeDvcProcess(cwd, Command.DAG, Flag.MD)
+      const flags = [Flag.MD]
+      if (collapse) {
+        const version = await this.version(cwd).catch(() => '')
+        if (supportsCollapseForeachMatrix(version)) {
+          flags.push(collapse)
+        } else if (version && !this.warnedAboutDagVersion) {
+          this.warnedAboutDagVersion = true
+          void Toast.warnWithOptions(
+            `Collapsing foreach and matrix stages requires DVC ${COLLAPSE_FOREACH_MATRIX_MIN_VERSION} or newer. Showing the expanded DAG.`
+          )
+        }
+      }
+      return await this.executeDvcProcess(cwd, Command.DAG, ...flags)
     } catch (error: unknown) {
       return (error as Error).toString()
     }

@@ -75,6 +75,7 @@ export enum Flag {
   KILL = '--kill',
   LOCAL = '--local',
   MD = '--md',
+  COLLAPSE_FOREACH_MATRIX = '--collapse-foreach-matrix',
   PROJECT = '--project',
   NUM_COMMIT = '-n',
   OUTPUT_PATH = '-o',

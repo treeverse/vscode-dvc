@@ -1,7 +1,7 @@
 import { join } from 'path'
 import { EventEmitter } from 'vscode'
 import { Disposable, Disposer } from '@hediet/std/disposable'
-import { DOT_DVC, UNEXPECTED_ERROR_CODE } from './constants'
+import { DOT_DVC, Flag, UNEXPECTED_ERROR_CODE } from './constants'
 import { EXPERIMENT_WORKSPACE_ID } from './contract'
 import { DvcReader } from './reader'
 import { CliResult, CliStarted } from '..'
@@ -14,6 +14,7 @@ import plotsDiffFixture from '../../test/fixtures/plotsDiff/output/minimal'
 import { Config } from '../../config'
 import { joinEnvPath } from '../../util/env'
 import { dvcDemoPath } from '../../test/util'
+import { Toast } from '../../vscode/toast'
 
 jest.mock('vscode')
 jest.mock('@hediet/std/disposable')
@@ -71,6 +72,45 @@ describe('DvcReader', () => {
   )
 
   describe('dag', () => {
+    const cases = [
+      ['3.65.0', false],
+      ['3.66.0', true],
+      ['3.67.1', true],
+      ['4.0.0', true],
+      ['unknown', false]
+    ] as const
+    for (const [version, supported] of cases) {
+      it(`handles requested collapse with CLI version ${version}`, async () => {
+        const warning = jest
+          .spyOn(Toast, 'warnWithOptions')
+          .mockResolvedValue(undefined)
+        mockedGetProcessEnv.mockReturnValue(mockedEnv)
+        mockedCreateProcess
+          .mockReturnValueOnce(getMockedProcess(version))
+          .mockReturnValueOnce(getMockedProcess('graph'))
+
+        try {
+          await expect(
+            dvcReader.dag(__dirname, Flag.COLLAPSE_FOREACH_MATRIX)
+          ).resolves.toBe('graph')
+          expect(mockedCreateProcess).toHaveBeenNthCalledWith(
+            1,
+            expect.objectContaining({ args: ['--version'] })
+          )
+          expect(mockedCreateProcess).toHaveBeenNthCalledWith(
+            2,
+            expect.objectContaining({
+              args: supported
+                ? ['dag', '--md', Flag.COLLAPSE_FOREACH_MATRIX]
+                : ['dag', '--md']
+            })
+          )
+        } finally {
+          warning.mockRestore()
+        }
+      })
+    }
+
     it('should match the expected output', async () => {
       const cwd = __dirname
       const dag = `\`\`\`mermaid

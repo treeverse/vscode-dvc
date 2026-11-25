@@ -66,6 +66,7 @@ export enum RegisteredCommands {
   STOP_EXPERIMENTS = 'dvc.stopAllRunningExperiments',
 
   PIPELINE_SHOW_DAG = 'dvc.showPipelineDAG',
+  PIPELINE_TOGGLE_DAG_COLLAPSE = 'dvc.togglePipelineDagCollapse',
 
   PLOTS_PATH_TOGGLE = 'dvc.views.plotsPathsTree.toggleStatus',
   PLOTS_SHOW = 'dvc.showPlots',

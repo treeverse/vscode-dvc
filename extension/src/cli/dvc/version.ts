@@ -9,6 +9,19 @@ export enum CliCompatible {
 
 export type ParsedSemver = { major: number; minor: number; patch: number }
 
+export const COLLAPSE_FOREACH_MATRIX_MIN_VERSION = '3.66.0'
+
+export const supportsCollapseForeachMatrix = (version: string) => {
+  const match = version.trim().match(/^(\d+)\.(\d+)\.(\d+)(?:\+\S+)?$/)
+  if (!match) {
+    return false
+  }
+  const [, major, minor] = match.map(Number)
+  const [minMajor, minMinor] =
+    COLLAPSE_FOREACH_MATRIX_MIN_VERSION.split('.').map(Number)
+  return major > minMajor || (major === minMajor && minor >= minMinor)
+}
+
 export const extractSemver = (stdout: string): ParsedSemver | undefined => {
   const semver = stdout.match(/^(\d+\.)?(\d+\.)?(\*|\d+)/)
   if (!semver) {
